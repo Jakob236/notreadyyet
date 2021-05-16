@@ -25,4 +25,5 @@ They generated fMRI data in nifti format
   * Bezmaternykh DD, Melnikov ME, Savelov AA and Petrovskii ED obtained the data in 2020.
 
 * What costs and resources are associated with the project?
+
   * The study was supported by Russian Science Foundation grant â 16-15-00183.
