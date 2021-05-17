@@ -1,12 +1,11 @@
 **Add project logo here**
-
+not logo yset
 **Add project zenodo badge here**
-
-test
+no badge yet
 
 ## "What's in this repository?"
 
-This repository contains the jupyter book for the project <project_name> conducted within <lecture_name_year>.
+This repository contains the jupyter book for the project <notreadyyet> conducted within <Methodological working in the neurosciences, 2021>.
 
 Please provide further information you would like to include here.
 
