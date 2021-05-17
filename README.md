@@ -1,4 +1,4 @@
-![Effects of Depression on Brain Activity]( https://github.com/Jakob236/notreadyyet/master/DepressionBrain.png)
+![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)
 **Add project zenodo badge here**
 no badge yet
 
