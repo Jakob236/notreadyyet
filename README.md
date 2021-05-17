@@ -1,5 +1,4 @@
-**Add project logo here**
-not logo yset
+![Effects of Depression on Brain Activity]( https://github.com/Jakob236/notreadyyet/master/DepressionBrain.png)
 **Add project zenodo badge here**
 no badge yet
 
