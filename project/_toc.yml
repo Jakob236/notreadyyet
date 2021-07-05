@@ -1,11 +1,15 @@
-- file: index
-- file: overview
-- file: project
-- file: data
-- file: pre_registration
-- file: lab_notebook
-- file: data_analyses
-- file: results
-- file: poster_manuscript
-- file: data_access
-- file: CoC
+ root: index
+ format: jb-book
+ chapters:
+ - file: overview
+ - file: project
+ - file: data
+ - file: lab_notebook
+   sections:
+   - file: lab_notebook_Grolms
+   - file: lab_notebook_Thielmann
+ - file: data_analyses
+ - file: results
+ - file: poster_manuscript
+ - file: data_access
+ - file: CoC
