@@ -1,3 +1,4 @@
+# Lab Notebook Grolms
 Week 1: 03.05. – 09.05.2021
 - Starting a shared Zotero project together with Jakob and setting up a Git repository
 - Discussing different research questions and methods that we are familiar with to find a topic for our project.
