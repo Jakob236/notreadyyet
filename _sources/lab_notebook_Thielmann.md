@@ -1,3 +1,5 @@
+# Lab Notebook Thielmann
+
 Week 1: 03.05. – 09.05.2021
 
 Created a Zotero account and shared literature with Luca. Also created a repository on github.com.
