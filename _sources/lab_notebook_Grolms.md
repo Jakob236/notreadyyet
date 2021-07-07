@@ -39,8 +39,13 @@ Week 8: 21.06. – 27.06.2021
 - tried to move the data to a different drive because my username on my laptop has a dash in it which could cause problems but it did not change anything.
 
 Week 9: 28.06. – 04.07.2021
-- writing with Thomas about the Docker error message. After trying a lot the same error message still occured.
+- writing with Thomas about the Docker error message.
+- After trying a lot the same error message still occured.
+- switching to Docker Desktop and deleting and installing Docker Toolbox again did not work.
 - talking with Jakob about further steps in the data analysis
 
  Week 10: 05.07. – 11.06.2021
 - meeting with Christoph to discuss next steps with SPM/Nipype
+- trying out Nipype
+- going through the visual reports with Jakob and checking the data with regard to quality
+- preparing a powerpoint presentation with the fMRI analysis steps that were done by the authors and how the data was obtained
