@@ -60,3 +60,6 @@
 -  Searching in forums for people that had the same issue and how they fixed it.
 -  Installing different versions of Java and different versions of Matlab Runtime but the MCR Installer seems to need Java 5 but it still does not work.
 -  Fixing this problem by notes from Thomas that he sent Jakob.
+
+#### Week 12: 19.07. - 25.07.2021
+- Meeting with Christoph
