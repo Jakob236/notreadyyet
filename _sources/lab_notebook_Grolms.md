@@ -57,5 +57,6 @@
 - installing the needed programs for linux
 - trying mriqc, getting error messages that the "sub-01_task-rest_bold.nii.gz" file cannot be found, writing with Thomas but fixing it by myself by downloading the data again and not placing the derivatives folder into the same folder as the data.
 -  trying to install spm and the MCR installer but getting the error message that no Java was found on this system
--  installing different versions of Java and different versions of Matlab Runtime but the MCR Installer seems to need Java 5 but it still does not work
--  fixing this problem by notes from Thomas that he sent Jakob
+-  Searching in forums for people that had the same issue and how they fixed it.
+-  Installing different versions of Java and different versions of Matlab Runtime but the MCR Installer seems to need Java 5 but it still does not work.
+-  Fixing this problem by notes from Thomas that he sent Jakob.
