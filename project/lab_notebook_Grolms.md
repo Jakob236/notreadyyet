@@ -53,7 +53,7 @@
 - having another meeting with Christoph to check the quality of the data and plan the steps of the preprocessing with Nipype
 - setting up a linux partition via virtual machine
 
-#### Week 11 12.07. - 18.07.2021
+#### Week 11: 12.07. - 18.07.2021
 - installing the needed programs for linux
 - trying mriqc, getting error messages that the "sub-01_task-rest_bold.nii.gz" file cannot be found, writing with Thomas but fixing it by myself by downloading the data again and not placing the derivatives folder into the same folder as the data.
 -  trying to install spm and the MCR installer but getting the error message that no Java was found on this system
