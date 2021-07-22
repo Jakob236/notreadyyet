@@ -62,4 +62,11 @@
 -  Fixing this problem by notes from Thomas that he sent Jakob.
 
 #### Week 12: 19.07. - 25.07.2021
-- Meeting with Christoph
+- Meeting with Christoph to finish preprocessing, getting an error message and contacting Thomas.
+- Fixing the error by myself by using a different version of spm and matlab runtime to run the notebook.
+- Meeting with Christoph: checking the preprocessed data for plausibility, installing MRIcroGL and GIFT toolbox to do the ICA
+- Trying to run the preprocessing but it crashed and by rebooting the virtual machine something went wrong and it was not possible to log in on linux anymore.
+- Trying for a few hours to get the linux partition back.
+- Getting the partition back with a slightly different layout.
+- Trying out the ICA with the preprocessed data that Jakob sent me, intstalling GIPC for group comparisons
+- Meeting with Christoph: doing the ICA with NILEARN
