@@ -277,13 +277,25 @@ Did the mriqc group analyse too and the mriqception with jupyter notebook.
 Worked also very well and showed a nice overview of the groupd parameters.</p>
 <p>Week 9: 28.06. – 04.07.2021</p>
 <p>Talking with Luca about further steps in the data analysis</p>
-<p>Week 10: 05.07. – 11.06.2021</p>
+<p>Week 10: 05.07. – 11.07.2021</p>
 <p>Meeting with Christoph to discuss next steps with SPM/Nipype
 Checked all participants in mriqc results to exlude maybe participants with artifacts or too much movements.
 Luca checked 1-36, I checked 37-72. Participant number 39 moved very much. Average movement by the other participants and I’m not sure where’s the line to exclude or not.
 Question for our next meeting with Christoph.
 Checked the SPM standalone version.
-Downloaded nypipe for python in anaconda. Tried to add my SPM path to nypipe. Without success.</p>
+Downloaded nypipe for python in anaconda. Tried to add my SPM path to nypipe. Without success.
+Much time with troubleshooting.
+Thomas made a instruction to install Matlab Runtime without the MCRinstaller.bin (missing java environment) and so at the end Nipype was ready to run.</p>
+<p>Week 11: 12.07. - 18.07.2021
+Worked for a long time with Christoph on the preprocessing script.
+Made a preprocessing for all subjects with gunzip, realign, slice timing, normalisation and smoothing (8mm).
+Checked the results in mrcicron. Realigned .nii seems to be a bit squeezed, no idea why. Smoothed .nii are looking fine.</p>
+<p>Week 12: 19.07. - 25.07.2021
+Downloaded Gift 3.0 for group ICA. Made some analysis with Gift and checked the different components.
+After meeting with Christoph we decided to use Nilearn instead of Gift 3.0.
+Created/copied the ICA Nilearn script and let it run on all, only healthy and only depressive participants.
+Checked the results.</p>
+<p>Looking for a tool to compare these group analysis with each other, decided to use “9.4.7. Group Sparse inverse covariance for multi-subject connectome”.</p>
 </div>
 
     <script type="text/x-thebe-config">
