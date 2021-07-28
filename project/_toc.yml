@@ -9,6 +9,9 @@
    - file: lab_notebook_Grolms
    - file: lab_notebook_Thielmann
  - file: data_analyses
+   sections:
+   - file: Preprocessing
+   - file: analyse
  - file: results
  - file: poster_manuscript
  - file: data_access
