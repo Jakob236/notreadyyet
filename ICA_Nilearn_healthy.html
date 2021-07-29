@@ -1,0 +1,3738 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Independet Component Analysis with Nilearn (healthy subjects)</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   About the content of this Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview &amp; motivation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   Project outline &amp; management plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   Dataset &amp; management plan
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lab_notebook.html">
+   lab notebook
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lab_notebook_Grolms.html">
+     Lab Notebook Grolms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lab_notebook_Thielmann.html">
+     Lab Notebook Thielmann
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="data_analyses.html">
+   Data analyses
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="results.html">
+   Results &amp; outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="poster_manuscript.html">
+   Poster &amp; manuscript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_access.html">
+   Data access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CoC.html">
+   GORELLA Code of Conduct
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ICA_Nilearn_healthy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/G0RELLA/gorella_project_template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/G0RELLA/gorella_project_template/issues/new?title=Issue%20on%20page%20%2FICA_Nilearn_healthy.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/G0RELLA/gorella_project_template/edit/master/lecture/ICA_Nilearn_healthy.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/G0RELLA/gorella_project_template/master?urlpath=tree/lecture/ICA_Nilearn_healthy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts">
+   We are working with 2 different datasets, so we created a list with the corresponding files. We exluded 3 subjects, subject 17, 39 and 48 because of to much movement or artefacts.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group">
+   Checking the subject list if everything worked well. In this case we are working with the depressiv group.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group">
+   Now we are running the ICA (indipendent component analysis with 20 different components. We made this twice, once with the depressiv group and once with the healthy control group.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue">
+   In case you don’t make this whole script in one time you can start here now loading the created ICA file to continue.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#here-we-plot-the-calculated-components-by-canica">
+   Here we plot the calculated components by CanICA.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size">
+   Next step is to extract the different regions of the 20 components. Therefore we used the nilearn region extractor with a min region size of 2000. That corresponds to about 100 voxel (2x2x5mm voxel size).
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects">
+   Now we are ready to extract the different timeseries of the subjects.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-the-atlas-for-labeling-the-matrices-later">
+   Importing the atlas for labeling the matrices later
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv">
+   We use two different ways to compute the precision and correlation, GraphicalLassoCV and GroupSparseCovarianceCV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-a-function-to-plot-the-matrices-easier">
+   Define a function to plot the matrices easier.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-connectomes-and-matrices">
+   Plot the connectomes and matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-the-matrices">
+   Save the matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-the-precision-matrix">
+   Save the precision matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file">
+   Matrices are nice to see but we look also for the exactly figures and saving the as .csv file.
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="independet-component-analysis-with-nilearn-healthy-subjects">
+<h1>Independet Component Analysis with Nilearn (healthy subjects)<a class="headerlink" href="#independet-component-analysis-with-nilearn-healthy-subjects" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decomposition</span> <span class="kn">import</span> <span class="n">CanICA</span>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_prob_atlas</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">iter_img</span>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">plot_prob_atlas</span><span class="p">,</span> <span class="n">plot_matrix</span><span class="p">,</span> <span class="n">plot_connectome</span><span class="p">,</span> <span class="n">find_probabilistic_atlas_cut_coords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jt/.local/lib/python3.8/site-packages/nilearn/datasets/__init__.py:86: FutureWarning: Fetchers from the nilearn.datasets module will be updated in version 0.9 to return python strings instead of bytes and Pandas dataframes instead of Numpy arrays.
+  warn(&quot;Fetchers from the nilearn.datasets module will be &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts">
+<h2>We are working with 2 different datasets, so we created a list with the corresponding files. We exluded 3 subjects, subject 17, 39 and 48 because of to much movement or artefacts.<a class="headerlink" href="#we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files_list</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">all_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">73</span><span class="p">))</span>
+<span class="n">healthy_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">73</span><span class="p">))</span>
+<span class="n">dep_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">52</span><span class="p">))</span>
+<span class="n">exclution_list</span><span class="o">=</span><span class="p">[</span><span class="mi">17</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">48</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">healthy_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exclution_list</span><span class="p">:</span>
+        <span class="n">j</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:02d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/media/jt/Daten1/preproc/datasink/smooth/sub-&quot;</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="s2">&quot;/task-restingstatewithclosedeyes/fwhm-8_swarsub-&quot;</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="s2">&quot;_task-rest_bold.nii&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group">
+<h2>Checking the subject list if everything worked well. In this case we are working with the depressiv group.<a class="headerlink" href="#checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files_list</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii
+/media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group">
+<h2>Now we are running the ICA (indipendent component analysis with 20 different components. We made this twice, once with the depressiv group and once with the healthy control group.<a class="headerlink" href="#now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canica</span> <span class="o">=</span> <span class="n">CanICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;/media/jt/Daten1/preproc/ICA_nilearn/nilearn_cache&quot;</span><span class="p">,</span> <span class="n">memory_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">mask_strategy</span><span class="o">=</span><span class="s1">&#39;template&#39;</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">canica</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">files_list</span><span class="p">)</span>
+
+<span class="c1"># Retrieve the independent components in brain space. Directly</span>
+<span class="c1"># accesible through attribute `components_img_`.</span>
+<span class="n">canica_components_img</span> <span class="o">=</span> <span class="n">canica</span><span class="o">.</span><span class="n">components_img_</span>
+<span class="c1"># components_img is a Nifti Image object, and can be saved to a file with</span>
+<span class="c1"># the following line:</span>
+<span class="n">canica_components_img</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s1">&#39;//media/jt/Daten1/preproc/ICA_nilearn/canica_resting_state_healthy.nii.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[MultiNiftiMasker.fit] Loading data from [/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii,
+ /media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii]
+[MultiNiftiMasker.fit] Computing mask
+[MultiNiftiMasker.transform] Resampling mask
+[CanICA] Loading data
+[Memory]1.1s, 0.0min    : Loading randomized_svd from /media/jt/Daten1/preproc/ICA_nilearn/nilearn_cache/joblib/sklearn/utils/extmath/randomized_svd/0f87f7ff1f1b2f75bba094491bd37bc5
+______________________________________randomized_svd cache loaded - 0.1s, 0.0min
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=-2)]: Using backend LokyBackend with 7 concurrent workers.
+[Parallel(n_jobs=-2)]: Done   3 out of  10 | elapsed:    1.4s remaining:    3.2s
+[Parallel(n_jobs=-2)]: Done   5 out of  10 | elapsed:    1.5s remaining:    1.5s
+[Parallel(n_jobs=-2)]: Done   7 out of  10 | elapsed:    1.7s remaining:    0.7s
+[Parallel(n_jobs=-2)]: Done  10 out of  10 | elapsed:    1.9s finished
+/home/jt/.local/lib/python3.8/site-packages/nilearn/image/image.py:1054: FutureWarning: The parameter &quot;sessions&quot; will be removed in 0.9.0 release of Nilearn. Please use the parameter &quot;runs&quot; instead.
+  data = signal.clean(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue">
+<h2>In case you don’t make this whole script in one time you can start here now loading the created ICA file to continue.<a class="headerlink" href="#in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only run for plotting without processing or further processing of the ICA data without CanICA them again</span>
+<span class="n">canica_components_img</span><span class="o">=</span><span class="s2">&quot;/media/jt/Daten1/preproc/ICA_nilearn/canica_resting_state_healthy.nii.gz&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="here-we-plot-the-calculated-components-by-canica">
+<h2>Here we plot the calculated components by CanICA.<a class="headerlink" href="#here-we-plot-the-calculated-components-by-canica" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all ICA components together</span>
+<span class="n">plot_prob_atlas</span><span class="p">(</span><span class="n">canica_components_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;All ICA components&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.8/dist-packages/numpy/ma/core.py:2825: UserWarning: Warning: converting a masked element to nan.
+  _data = np.array(data, dtype=dtype, copy=copy,
+/home/jt/.local/lib/python3.8/site-packages/nilearn/plotting/displays.py:101: UserWarning: linewidths is ignored by contourf
+  im = getattr(ax, type)(data_2d.copy(),
+/home/jt/.local/lib/python3.8/site-packages/nilearn/plotting/displays.py:101: UserWarning: No contour levels were found within the data range.
+  im = getattr(ax, type)(data_2d.copy(),
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer at 0x7fc04b6cb0d0&gt;
+</pre></div>
+</div>
+<img alt="_images/ICA_Nilearn_healthy_11_2.png" src="_images/ICA_Nilearn_healthy_11_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the different slices of components</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cur_img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iter_img</span><span class="p">(</span><span class="n">canica_components_img</span><span class="p">)):</span>
+    <span class="n">plot_stat_map</span><span class="p">(</span><span class="n">cur_img</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;IC </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span>
+                  <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ICA_Nilearn_healthy_12_0.png" src="_images/ICA_Nilearn_healthy_12_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_1.png" src="_images/ICA_Nilearn_healthy_12_1.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_2.png" src="_images/ICA_Nilearn_healthy_12_2.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_3.png" src="_images/ICA_Nilearn_healthy_12_3.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_4.png" src="_images/ICA_Nilearn_healthy_12_4.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_5.png" src="_images/ICA_Nilearn_healthy_12_5.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_6.png" src="_images/ICA_Nilearn_healthy_12_6.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_7.png" src="_images/ICA_Nilearn_healthy_12_7.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_8.png" src="_images/ICA_Nilearn_healthy_12_8.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_9.png" src="_images/ICA_Nilearn_healthy_12_9.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_10.png" src="_images/ICA_Nilearn_healthy_12_10.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_11.png" src="_images/ICA_Nilearn_healthy_12_11.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_12.png" src="_images/ICA_Nilearn_healthy_12_12.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_13.png" src="_images/ICA_Nilearn_healthy_12_13.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_14.png" src="_images/ICA_Nilearn_healthy_12_14.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_15.png" src="_images/ICA_Nilearn_healthy_12_15.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_16.png" src="_images/ICA_Nilearn_healthy_12_16.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_17.png" src="_images/ICA_Nilearn_healthy_12_17.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_18.png" src="_images/ICA_Nilearn_healthy_12_18.png" />
+<img alt="_images/ICA_Nilearn_healthy_12_19.png" src="_images/ICA_Nilearn_healthy_12_19.png" />
+</div>
+</div>
+</div>
+<div class="section" id="next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size">
+<h2>Next step is to extract the different regions of the 20 components. Therefore we used the nilearn region extractor with a min region size of 2000. That corresponds to about 100 voxel (2x2x5mm voxel size).<a class="headerlink" href="#next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components_img</span><span class="o">=</span><span class="n">canica_components_img</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Region Extractor algorithm from regions module</span>
+<span class="c1"># threshold=0.5 indicates that we keep nominal of amount nonzero voxels across all</span>
+<span class="c1"># maps, less the threshold means that more intense non-voxels will be survived.</span>
+<span class="kn">from</span> <span class="nn">nilearn.regions</span> <span class="kn">import</span> <span class="n">RegionExtractor</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">atlas</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span><span class="p">()</span>
+<span class="c1"># Loading atlas image stored in &#39;maps&#39;</span>
+<span class="n">atlas_filename</span> <span class="o">=</span> <span class="n">atlas</span><span class="p">[</span><span class="s1">&#39;maps&#39;</span><span class="p">]</span>
+
+<span class="n">extractor</span> <span class="o">=</span> <span class="n">RegionExtractor</span><span class="p">(</span><span class="n">components_img</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                            <span class="n">thresholding_strategy</span><span class="o">=</span><span class="s1">&#39;ratio_n_voxels&#39;</span><span class="p">,</span>
+                            <span class="n">extractor</span><span class="o">=</span><span class="s1">&#39;local_regions&#39;</span><span class="p">,</span>
+                            <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="c1"># Just call fit() to process for regions extraction</span>
+<span class="n">extractor</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="c1"># Extracted regions are stored in regions_img_</span>
+<span class="n">regions_extracted_img</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="n">regions_img_</span>
+<span class="c1"># Each region index is stored in index_</span>
+<span class="n">regions_index</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="n">index_</span>
+<span class="c1"># Total number of regions extracted</span>
+<span class="n">n_regions_extracted</span> <span class="o">=</span> <span class="n">regions_extracted_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Visualization of region extraction results</span>
+<span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> regions are extracted from </span><span class="si">%d</span><span class="s1"> components.&#39;</span>
+         <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Each separate color of region indicates extracted region&#39;</span>
+         <span class="o">%</span> <span class="p">(</span><span class="n">n_regions_extracted</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plot_prob_atlas</span><span class="p">(</span><span class="n">regions_extracted_img</span><span class="p">,</span> <span class="n">view_type</span><span class="o">=</span><span class="s1">&#39;filled_contours&#39;</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.8/dist-packages/numpy/lib/npyio.py:2405: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+  output = genfromtxt(fname, **kwargs)
+/home/jt/.local/lib/python3.8/site-packages/nilearn/image/image.py:1054: FutureWarning: The parameter &quot;sessions&quot; will be removed in 0.9.0 release of Nilearn. Please use the parameter &quot;runs&quot; instead.
+  data = signal.clean(
+/usr/local/lib/python3.8/dist-packages/numpy/ma/core.py:2825: UserWarning: Warning: converting a masked element to nan.
+  _data = np.array(data, dtype=dtype, copy=copy,
+/home/jt/.local/lib/python3.8/site-packages/nilearn/plotting/displays.py:101: UserWarning: No contour levels were found within the data range.
+  im = getattr(ax, type)(data_2d.copy(),
+/home/jt/.local/lib/python3.8/site-packages/nilearn/plotting/displays.py:101: UserWarning: linewidths is ignored by contourf
+  im = getattr(ax, type)(data_2d.copy(),
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer at 0x7fc0083f88b0&gt;
+</pre></div>
+</div>
+<img alt="_images/ICA_Nilearn_healthy_15_2.png" src="_images/ICA_Nilearn_healthy_15_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects">
+<h2>Now we are ready to extract the different timeseries of the subjects.<a class="headerlink" href="#now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we need to do subjects timeseries signals extraction and then estimating</span>
+<span class="c1"># correlation matrices on those signals.</span>
+<span class="c1"># To extract timeseries signals, we call transform() from RegionExtractor object</span>
+<span class="c1"># onto each subject functional data stored in files_list.</span>
+<span class="c1"># To estimate correlation matrices we import connectome utilities from nilearn</span>
+<span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <span class="n">ConnectivityMeasure</span>
+
+<span class="n">correlations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Initializing ConnectivityMeasure object with kind=&#39;correlation&#39;</span>
+<span class="n">connectome_measure</span> <span class="o">=</span> <span class="n">ConnectivityMeasure</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;correlation&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files_list</span><span class="p">:</span>
+    <span class="c1"># call transform from RegionExtractor object to extract timeseries signals</span>
+    <span class="n">timeseries_each_subject</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="c1"># call fit_transform from ConnectivityMeasure object</span>
+    <span class="n">correlation</span> <span class="o">=</span> <span class="n">connectome_measure</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">timeseries_each_subject</span><span class="p">])</span>
+    <span class="c1"># saving each subject correlation to correlations</span>
+    <span class="n">correlations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">correlation</span><span class="p">)</span>
+
+<span class="c1"># Mean of all correlations</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">mean_correlations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correlations</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_regions_extracted</span><span class="p">,</span>
+                                                          <span class="n">n_regions_extracted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-the-atlas-for-labeling-the-matrices-later">
+<h2>Importing the atlas for labeling the matrices later<a class="headerlink" href="#importing-the-atlas-for-labeling-the-matrices-later" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">input_data</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">msdl_atlas_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span><span class="p">()</span>
+
+<span class="c1"># A &quot;memory&quot; to avoid recomputation</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Memory</span>
+<span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">)</span>
+
+<span class="n">masker</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">NiftiMapsMasker</span><span class="p">(</span>
+    <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span><span class="p">,</span> <span class="n">resampling_target</span><span class="o">=</span><span class="s2">&quot;maps&quot;</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">high_variance_confounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low_pass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">,</span> <span class="n">memory_level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">subject_time_series</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">func_filenames</span> <span class="o">=</span> <span class="n">files_list</span>
+<span class="k">for</span> <span class="n">func_filename</span> <span class="ow">in</span> <span class="p">(</span><span class="n">func_filenames</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing file </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">func_filename</span><span class="p">)</span>
+
+    <span class="n">region_ts</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">func_filename</span><span class="p">)</span>
+    <span class="n">subject_time_series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">region_ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.8/dist-packages/numpy/lib/npyio.py:2405: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+  output = genfromtxt(fname, **kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[NiftiMapsMasker.fit] loading regions from /home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jt/.local/lib/python3.8/site-packages/nilearn/image/image.py:1054: FutureWarning: The parameter &quot;sessions&quot; will be removed in 0.9.0 release of Nilearn. Please use the parameter &quot;runs&quot; instead.
+  data = signal.clean(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.7s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc008395b80&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.173922, ...,  0.16731 ],
+       ...,
+       [ 0.215147, ...,  0.067081]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.5s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a164730&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[0.08794 , ..., 0.056381],
+       ...,
+       [0.126701, ..., 0.08743 ]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 6.9s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084d8d30&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.181957, ..., -0.230222],
+       ...,
+       [ 0.07755 , ..., -0.149199]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.5s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a068c70&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.069788, ..., -0.034676],
+       ...,
+       [-0.013775, ..., -0.089689]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.6s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026762670&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.009714, ..., -0.02162 ],
+       ...,
+       [ 0.051722, ..., -0.035099]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 6.9s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.6s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc049ff05b0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.215107, ...,  0.057233],
+       ...,
+       [ 0.024056, ...,  0.059524]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 6.9s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.5s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084d8c40&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.188373, ...,  0.141604],
+       ...,
+       [-0.097708, ..., -0.029626]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.2s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.3s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084e27f0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.210932, ...,  0.007137],
+       ...,
+       [-0.041109, ...,  0.255932]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.2s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a2265e0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.040403, ...,  0.054425],
+       ...,
+       [ 0.04692 , ..., -0.053091]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.4s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.3s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a1643a0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.106252, ..., -0.071942],
+       ...,
+       [ 0.008595, ..., -0.025874]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.2s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.5s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc06818afa0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.023995, ...,  0.016786],
+       ...,
+       [-0.131352, ..., -0.105799]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.1s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0265f4b20&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.062443, ...,  0.203875],
+       ...,
+       [-0.147959, ..., -0.053051]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483d00&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.001694, ...,  0.124973],
+       ...,
+       [ 0.12469 , ...,  0.074995]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.2s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026221340&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.025259, ...,  0.123656],
+       ...,
+       [ 0.072288, ...,  0.157458]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.1s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.5s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084be100&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.008878, ..., -0.184763],
+       ...,
+       [ 0.068402, ..., -0.06883 ]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.2s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084b8190&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[0.190219, ..., 0.102057],
+       ...,
+       [0.191617, ..., 0.019988]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 6.9s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.3s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc00bbf1be0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.006067, ..., -0.168544],
+       ...,
+       [-0.087805, ...,  0.178932]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.1s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a2265e0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[0.013709, ..., 0.083154],
+       ...,
+       [0.054306, ..., 0.123584]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.3s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483ca0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.167653, ...,  0.022947],
+       ...,
+       [ 0.071777, ..., -0.036161]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.2s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii&#39;)
+__________________________________________high_variance_confounds - 2.3s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483ca0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.103602, ..., -0.168443],
+       ...,
+       [ 0.108778, ...,  0.095781]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.0s, 0.1min
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii
+________________________________________________________________________________
+[Memory] Calling nilearn.image.image.high_variance_confounds...
+high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
+filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii&#39;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a1643a0&gt;, 
+{ &#39;allow_overlap&#39;: True,
+  &#39;detrend&#39;: True,
+  &#39;dtype&#39;: None,
+  &#39;high_pass&#39;: 0.01,
+  &#39;high_variance_confounds&#39;: True,
+  &#39;low_pass&#39;: None,
+  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
+  &#39;mask_img&#39;: None,
+  &#39;smoothing_fwhm&#39;: None,
+  &#39;standardize&#39;: True,
+  &#39;standardize_confounds&#39;: True,
+  &#39;t_r&#39;: 2,
+  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
+       [   0.,    4.,    0., -111.],
+       [   0.,    0.,    4.,  -51.],
+       [   0.,    0.,    0.,    1.]]),
+  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.0318  , ...,  0.024652],
+       ...,
+       [-0.101141, ..., -0.044573]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii
+[NiftiMapsMasker.transform_single_imgs] Resampling images
+[NiftiMapsMasker.transform_single_imgs] Extracting region signals
+[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
+_______________________________________________filter_and_extract - 7.1s, 0.1min
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv">
+<h2>We use two different ways to compute the precision and correlation, GraphicalLassoCV and GroupSparseCovarianceCV<a class="headerlink" href="#we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <span class="n">GroupSparseCovarianceCV</span>
+<span class="n">gsc</span> <span class="o">=</span> <span class="n">GroupSparseCovarianceCV</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gsc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">subject_time_series</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">GraphicalLassoCV</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># for Scitkit-Learn &lt; v0.20.0</span>
+    <span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">GraphLassoCV</span> <span class="k">as</span> <span class="n">GraphicalLassoCV</span>
+
+<span class="n">gl</span> <span class="o">=</span> <span class="n">GraphicalLassoCV</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">subject_time_series</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 5
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    6.1s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 2
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 5
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 9
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 9
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 10
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  1 out of 4
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   32.8s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   11.5s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 7
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 7
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 7
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
+[GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  2 out of 4
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   57.9s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 4
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   10.6s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 10
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 9
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   54.2s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  3 out of 4
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    8.6s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 13
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 7
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 9
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   50.6s finished
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  4 out of 4
+[GroupSparseCovarianceCV.fit] Final optimization
+[GroupSparseCovarianceCV.fit] tolerance reached at iteration number 23: 8.801e-04
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.2s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    1.6s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  1 out of 4:   1s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.6s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.4s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  2 out of 4:   3s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.5s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.3s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  3 out of 4:   6s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.3s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.6s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  4 out of 4:   8s
+[graphical_lasso] Iteration   0, cost  1.62e+02, dual gap 4.862e-01
+[graphical_lasso] Iteration   1, cost  1.62e+02, dual gap -1.406e-02
+[graphical_lasso] Iteration   2, cost  1.62e+02, dual gap -8.801e-04
+[graphical_lasso] Iteration   3, cost  1.62e+02, dual gap -1.949e-04
+[graphical_lasso] Iteration   4, cost  1.62e+02, dual gap 6.202e-05
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GraphicalLassoCV(verbose=2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-a-function-to-plot-the-matrices-easier">
+<h2>Define a function to plot the matrices easier.<a class="headerlink" href="#define-a-function-to-plot-the-matrices-easier" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+
+<span class="k">def</span> <span class="nf">plot_matrices</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">prec</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot covariance and precision matrices, for a given processing. &quot;&quot;&quot;</span>
+
+    <span class="n">prec</span> <span class="o">=</span> <span class="n">prec</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># avoid side effects</span>
+
+    <span class="c1"># Put zeros on the diagonal, for graph clarity.</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">prec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">prec</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+
+    <span class="c1"># Display covariance matrix</span>
+    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+                         <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / covariance&quot;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span>
+                         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+    <span class="c1"># Display precision matrix</span>
+    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span><span class="n">prec</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+                         <span class="n">vmin</span><span class="o">=-</span><span class="n">span</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">span</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / precision&quot;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span>
+                         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-connectomes-and-matrices">
+<h2>Plot the connectomes and matrices<a class="headerlink" href="#plot-the-connectomes-and-matrices" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atlas_img</span> <span class="o">=</span> <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span>
+<span class="n">atlas_region_coords</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">find_probabilistic_atlas_cut_coords</span><span class="p">(</span><span class="n">atlas_img</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">labels</span>
+
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span>
+                         <span class="n">atlas_region_coords</span><span class="p">,</span> <span class="n">edge_threshold</span><span class="o">=</span><span class="s1">&#39;90%&#39;</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Covariance&quot;</span><span class="p">,</span>
+                         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span><span class="o">-</span><span class="n">gl</span><span class="o">.</span><span class="n">precision_</span><span class="p">,</span> <span class="n">atlas_region_coords</span><span class="p">,</span>
+                         <span class="n">edge_threshold</span><span class="o">=</span><span class="s1">&#39;90%&#39;</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Sparse inverse covariance (GraphicalLasso)&quot;</span><span class="p">,</span>
+                         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
+                         <span class="n">edge_vmax</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">edge_vmin</span><span class="o">=-</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plot_matrices</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span> <span class="n">gl</span><span class="o">.</span><span class="n">precision_</span><span class="p">,</span> <span class="s2">&quot;GraphicalLasso&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;GroupSparseCovariance&quot;</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span><span class="o">-</span><span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                         <span class="n">atlas_region_coords</span><span class="p">,</span> <span class="n">edge_threshold</span><span class="o">=</span><span class="s1">&#39;90%&#39;</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
+                         <span class="n">edge_vmax</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">edge_vmin</span><span class="o">=-</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plot_matrices</span><span class="p">(</span><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ICA_Nilearn_healthy_25_0.png" src="_images/ICA_Nilearn_healthy_25_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_1.png" src="_images/ICA_Nilearn_healthy_25_1.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_2.png" src="_images/ICA_Nilearn_healthy_25_2.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_3.png" src="_images/ICA_Nilearn_healthy_25_3.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_4.png" src="_images/ICA_Nilearn_healthy_25_4.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_5.png" src="_images/ICA_Nilearn_healthy_25_5.png" />
+<img alt="_images/ICA_Nilearn_healthy_25_6.png" src="_images/ICA_Nilearn_healthy_25_6.png" />
+</div>
+</div>
+</div>
+<div class="section" id="save-the-matrices">
+<h2>Save the matrices<a class="headerlink" href="#save-the-matrices" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+
+<span class="c1">#1st matrix</span>
+<span class="n">cov</span><span class="o">=</span><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">title</span><span class="o">=</span><span class="s1">&#39;GroupSparseCovariance&#39;</span>
+<span class="n">display</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+                     <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / covariance&quot;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span>
+                     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;GSC_covariance_healthy.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># 2nd matrix</span>
+<span class="n">cov</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span>
+<span class="n">title</span><span class="o">=</span><span class="s1">&#39;GraphicLassoCV&#39;</span>
+<span class="c1"># Display covariance matrix</span>
+<span class="n">display</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+                     <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / covariance&quot;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span>
+                     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;GL_covariances_healthy.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ICA_Nilearn_healthy_27_0.png" src="_images/ICA_Nilearn_healthy_27_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_27_1.png" src="_images/ICA_Nilearn_healthy_27_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="save-the-precision-matrix">
+<h2>Save the precision matrix<a class="headerlink" href="#save-the-precision-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prec</span> <span class="o">=</span> <span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Put zeros on the diagonal, for graph clarity.</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">prec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">prec</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">span</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="n">title</span><span class="o">=</span><span class="s1">&#39;GSC&#39;</span>
+<span class="c1"># Display precision matrix</span>
+<span class="n">display</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span><span class="n">prec</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+                     <span class="n">vmin</span><span class="o">=-</span><span class="n">span</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">span</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / precision&quot;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span>
+                     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Precision_healthy.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ICA_Nilearn_healthy_29_0.png" src="_images/ICA_Nilearn_healthy_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file">
+<h2>Matrices are nice to see but we look also for the exactly figures and saving the as .csv file.<a class="headerlink" href="#matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GL_covariances_dep.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>L Aud</th>
+      <th>R Aud</th>
+      <th>Striate</th>
+      <th>L DMN</th>
+      <th>Med DMN</th>
+      <th>Front DMN</th>
+      <th>R DMN</th>
+      <th>Occ post</th>
+      <th>Motor</th>
+      <th>R DLPFC</th>
+      <th>...</th>
+      <th>Sup Front S</th>
+      <th>R TPJ</th>
+      <th>R Pars Op</th>
+      <th>Cereb</th>
+      <th>Dors PCC</th>
+      <th>L Ins</th>
+      <th>Cing</th>
+      <th>R Ins</th>
+      <th>L Ant IPS</th>
+      <th>R Ant IPS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L Aud</th>
+      <td>1.000000</td>
+      <td>0.821322</td>
+      <td>0.302834</td>
+      <td>-0.007970</td>
+      <td>-0.000290</td>
+      <td>0.083248</td>
+      <td>-0.008446</td>
+      <td>0.025825</td>
+      <td>0.471992</td>
+      <td>0.153481</td>
+      <td>...</td>
+      <td>0.187710</td>
+      <td>0.164365</td>
+      <td>0.139000</td>
+      <td>0.160901</td>
+      <td>0.141476</td>
+      <td>0.254763</td>
+      <td>0.382023</td>
+      <td>0.234387</td>
+      <td>0.380239</td>
+      <td>0.381568</td>
+    </tr>
+    <tr>
+      <th>R Aud</th>
+      <td>0.821322</td>
+      <td>1.000000</td>
+      <td>0.296288</td>
+      <td>0.003880</td>
+      <td>0.008565</td>
+      <td>0.096501</td>
+      <td>-0.007617</td>
+      <td>0.029980</td>
+      <td>0.455368</td>
+      <td>0.135232</td>
+      <td>...</td>
+      <td>0.191201</td>
+      <td>0.145730</td>
+      <td>0.106199</td>
+      <td>0.160628</td>
+      <td>0.123911</td>
+      <td>0.253044</td>
+      <td>0.394793</td>
+      <td>0.226349</td>
+      <td>0.300582</td>
+      <td>0.342406</td>
+    </tr>
+    <tr>
+      <th>Striate</th>
+      <td>0.302834</td>
+      <td>0.296288</td>
+      <td>1.000000</td>
+      <td>0.186124</td>
+      <td>0.271864</td>
+      <td>0.192337</td>
+      <td>0.155576</td>
+      <td>-0.072835</td>
+      <td>0.385552</td>
+      <td>0.114155</td>
+      <td>...</td>
+      <td>0.162618</td>
+      <td>0.149518</td>
+      <td>0.104844</td>
+      <td>0.240618</td>
+      <td>0.216173</td>
+      <td>0.155662</td>
+      <td>0.223019</td>
+      <td>0.112553</td>
+      <td>0.121608</td>
+      <td>0.163799</td>
+    </tr>
+    <tr>
+      <th>L DMN</th>
+      <td>-0.007970</td>
+      <td>0.003880</td>
+      <td>0.186124</td>
+      <td>1.000000</td>
+      <td>0.568449</td>
+      <td>0.357647</td>
+      <td>0.621197</td>
+      <td>0.017152</td>
+      <td>-0.020522</td>
+      <td>0.143032</td>
+      <td>...</td>
+      <td>0.078178</td>
+      <td>0.029761</td>
+      <td>-0.057754</td>
+      <td>-0.046867</td>
+      <td>-0.015133</td>
+      <td>-0.237673</td>
+      <td>-0.187451</td>
+      <td>-0.311885</td>
+      <td>-0.162219</td>
+      <td>-0.216600</td>
+    </tr>
+    <tr>
+      <th>Med DMN</th>
+      <td>-0.000290</td>
+      <td>0.008565</td>
+      <td>0.271864</td>
+      <td>0.568449</td>
+      <td>1.000000</td>
+      <td>0.406085</td>
+      <td>0.537214</td>
+      <td>-0.114467</td>
+      <td>0.030808</td>
+      <td>0.179529</td>
+      <td>...</td>
+      <td>0.026600</td>
+      <td>0.107054</td>
+      <td>-0.064841</td>
+      <td>-0.096755</td>
+      <td>0.233878</td>
+      <td>-0.121988</td>
+      <td>-0.111553</td>
+      <td>-0.172688</td>
+      <td>-0.149471</td>
+      <td>-0.173618</td>
+    </tr>
+    <tr>
+      <th>Front DMN</th>
+      <td>0.083248</td>
+      <td>0.096501</td>
+      <td>0.192337</td>
+      <td>0.357647</td>
+      <td>0.406085</td>
+      <td>1.000000</td>
+      <td>0.288223</td>
+      <td>0.014671</td>
+      <td>0.085228</td>
+      <td>0.154653</td>
+      <td>...</td>
+      <td>0.253364</td>
+      <td>0.210990</td>
+      <td>0.101415</td>
+      <td>-0.039521</td>
+      <td>-0.019831</td>
+      <td>0.047874</td>
+      <td>-0.068672</td>
+      <td>-0.006849</td>
+      <td>-0.070474</td>
+      <td>-0.077322</td>
+    </tr>
+    <tr>
+      <th>R DMN</th>
+      <td>-0.008446</td>
+      <td>-0.007617</td>
+      <td>0.155576</td>
+      <td>0.621197</td>
+      <td>0.537214</td>
+      <td>0.288223</td>
+      <td>1.000000</td>
+      <td>-0.000791</td>
+      <td>-0.003168</td>
+      <td>0.270195</td>
+      <td>...</td>
+      <td>0.082336</td>
+      <td>0.123463</td>
+      <td>0.050905</td>
+      <td>-0.035837</td>
+      <td>0.143137</td>
+      <td>-0.182998</td>
+      <td>-0.125727</td>
+      <td>-0.242219</td>
+      <td>-0.121337</td>
+      <td>-0.216231</td>
+    </tr>
+    <tr>
+      <th>Occ post</th>
+      <td>0.025825</td>
+      <td>0.029980</td>
+      <td>-0.072835</td>
+      <td>0.017152</td>
+      <td>-0.114467</td>
+      <td>0.014671</td>
+      <td>-0.000791</td>
+      <td>1.000000</td>
+      <td>-0.001135</td>
+      <td>0.097417</td>
+      <td>...</td>
+      <td>0.131882</td>
+      <td>0.036918</td>
+      <td>0.104544</td>
+      <td>0.112441</td>
+      <td>-0.121793</td>
+      <td>0.000832</td>
+      <td>0.008614</td>
+      <td>-0.001215</td>
+      <td>0.007786</td>
+      <td>0.012463</td>
+    </tr>
+    <tr>
+      <th>Motor</th>
+      <td>0.471992</td>
+      <td>0.455368</td>
+      <td>0.385552</td>
+      <td>-0.020522</td>
+      <td>0.030808</td>
+      <td>0.085228</td>
+      <td>-0.003168</td>
+      <td>-0.001135</td>
+      <td>1.000000</td>
+      <td>0.165353</td>
+      <td>...</td>
+      <td>0.252036</td>
+      <td>0.238690</td>
+      <td>0.193177</td>
+      <td>0.278199</td>
+      <td>0.385122</td>
+      <td>0.246856</td>
+      <td>0.434211</td>
+      <td>0.220535</td>
+      <td>0.470407</td>
+      <td>0.543659</td>
+    </tr>
+    <tr>
+      <th>R DLPFC</th>
+      <td>0.153481</td>
+      <td>0.135232</td>
+      <td>0.114155</td>
+      <td>0.143032</td>
+      <td>0.179529</td>
+      <td>0.154653</td>
+      <td>0.270195</td>
+      <td>0.097417</td>
+      <td>0.165353</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>0.321722</td>
+      <td>0.294848</td>
+      <td>0.438051</td>
+      <td>0.132872</td>
+      <td>0.294629</td>
+      <td>0.150487</td>
+      <td>0.171525</td>
+      <td>0.199701</td>
+      <td>0.175174</td>
+      <td>0.160887</td>
+    </tr>
+    <tr>
+      <th>R Front pol</th>
+      <td>0.090199</td>
+      <td>0.061096</td>
+      <td>-0.020731</td>
+      <td>-0.054577</td>
+      <td>-0.077080</td>
+      <td>0.063931</td>
+      <td>0.004791</td>
+      <td>0.123451</td>
+      <td>0.131287</td>
+      <td>0.475963</td>
+      <td>...</td>
+      <td>0.194443</td>
+      <td>0.198761</td>
+      <td>0.356307</td>
+      <td>0.151952</td>
+      <td>0.085606</td>
+      <td>0.062017</td>
+      <td>0.054231</td>
+      <td>0.179745</td>
+      <td>0.182504</td>
+      <td>0.169799</td>
+    </tr>
+    <tr>
+      <th>R Par</th>
+      <td>0.082842</td>
+      <td>0.045551</td>
+      <td>0.015581</td>
+      <td>0.116605</td>
+      <td>0.168084</td>
+      <td>0.040501</td>
+      <td>0.139942</td>
+      <td>0.041772</td>
+      <td>0.100957</td>
+      <td>0.598103</td>
+      <td>...</td>
+      <td>0.144742</td>
+      <td>0.194803</td>
+      <td>0.263445</td>
+      <td>0.123862</td>
+      <td>0.233774</td>
+      <td>0.012741</td>
+      <td>0.064376</td>
+      <td>0.085485</td>
+      <td>0.198065</td>
+      <td>0.191991</td>
+    </tr>
+    <tr>
+      <th>R Post Temp</th>
+      <td>0.049299</td>
+      <td>0.028759</td>
+      <td>-0.042399</td>
+      <td>0.074442</td>
+      <td>0.067802</td>
+      <td>0.126845</td>
+      <td>0.110943</td>
+      <td>0.055722</td>
+      <td>0.120440</td>
+      <td>0.345676</td>
+      <td>...</td>
+      <td>0.136595</td>
+      <td>0.277342</td>
+      <td>0.218744</td>
+      <td>0.083171</td>
+      <td>0.150238</td>
+      <td>0.012798</td>
+      <td>0.032666</td>
+      <td>0.020682</td>
+      <td>0.126716</td>
+      <td>0.091872</td>
+    </tr>
+    <tr>
+      <th>Basal</th>
+      <td>0.293397</td>
+      <td>0.298721</td>
+      <td>0.237604</td>
+      <td>0.034606</td>
+      <td>0.087721</td>
+      <td>0.209381</td>
+      <td>0.041621</td>
+      <td>0.150458</td>
+      <td>0.374672</td>
+      <td>0.299768</td>
+      <td>...</td>
+      <td>0.306169</td>
+      <td>0.309486</td>
+      <td>0.303961</td>
+      <td>0.240406</td>
+      <td>0.234051</td>
+      <td>0.378826</td>
+      <td>0.409864</td>
+      <td>0.368342</td>
+      <td>0.223995</td>
+      <td>0.264720</td>
+    </tr>
+    <tr>
+      <th>L Par</th>
+      <td>0.038724</td>
+      <td>0.006267</td>
+      <td>0.018585</td>
+      <td>0.198444</td>
+      <td>0.196092</td>
+      <td>0.046650</td>
+      <td>0.126490</td>
+      <td>0.068537</td>
+      <td>0.065448</td>
+      <td>0.407329</td>
+      <td>...</td>
+      <td>0.177270</td>
+      <td>0.146219</td>
+      <td>0.168545</td>
+      <td>0.072936</td>
+      <td>0.180735</td>
+      <td>-0.017631</td>
+      <td>-0.013019</td>
+      <td>-0.037227</td>
+      <td>0.154378</td>
+      <td>0.063706</td>
+    </tr>
+    <tr>
+      <th>L DLPFC</th>
+      <td>0.189240</td>
+      <td>0.178889</td>
+      <td>0.167735</td>
+      <td>0.291603</td>
+      <td>0.184528</td>
+      <td>0.202449</td>
+      <td>0.211260</td>
+      <td>0.158801</td>
+      <td>0.201661</td>
+      <td>0.579410</td>
+      <td>...</td>
+      <td>0.424281</td>
+      <td>0.256344</td>
+      <td>0.269194</td>
+      <td>0.102848</td>
+      <td>0.182041</td>
+      <td>0.126304</td>
+      <td>0.125625</td>
+      <td>0.037122</td>
+      <td>0.176544</td>
+      <td>0.114093</td>
+    </tr>
+    <tr>
+      <th>L Front pol</th>
+      <td>0.101292</td>
+      <td>0.079799</td>
+      <td>-0.005493</td>
+      <td>0.042976</td>
+      <td>-0.057301</td>
+      <td>0.052793</td>
+      <td>0.006960</td>
+      <td>0.144922</td>
+      <td>0.117738</td>
+      <td>0.350634</td>
+      <td>...</td>
+      <td>0.212497</td>
+      <td>0.145577</td>
+      <td>0.231343</td>
+      <td>0.127833</td>
+      <td>0.043466</td>
+      <td>0.083730</td>
+      <td>0.023498</td>
+      <td>0.076699</td>
+      <td>0.171604</td>
+      <td>0.122877</td>
+    </tr>
+    <tr>
+      <th>L IPS</th>
+      <td>0.185593</td>
+      <td>0.165473</td>
+      <td>0.242066</td>
+      <td>-0.095714</td>
+      <td>0.009421</td>
+      <td>-0.103951</td>
+      <td>-0.075683</td>
+      <td>-0.003154</td>
+      <td>0.250275</td>
+      <td>0.207079</td>
+      <td>...</td>
+      <td>0.070490</td>
+      <td>0.007272</td>
+      <td>0.066221</td>
+      <td>0.068836</td>
+      <td>0.260098</td>
+      <td>0.107705</td>
+      <td>0.173213</td>
+      <td>0.082931</td>
+      <td>0.242332</td>
+      <td>0.239697</td>
+    </tr>
+    <tr>
+      <th>R IPS</th>
+      <td>0.154596</td>
+      <td>0.134784</td>
+      <td>0.157066</td>
+      <td>-0.166227</td>
+      <td>-0.014219</td>
+      <td>-0.110309</td>
+      <td>-0.073261</td>
+      <td>-0.021868</td>
+      <td>0.226967</td>
+      <td>0.247797</td>
+      <td>...</td>
+      <td>0.005393</td>
+      <td>-0.011959</td>
+      <td>0.043072</td>
+      <td>0.029259</td>
+      <td>0.336249</td>
+      <td>0.095358</td>
+      <td>0.169415</td>
+      <td>0.106054</td>
+      <td>0.239140</td>
+      <td>0.243863</td>
+    </tr>
+    <tr>
+      <th>L LOC</th>
+      <td>0.301305</td>
+      <td>0.290510</td>
+      <td>0.434894</td>
+      <td>0.004414</td>
+      <td>-0.003290</td>
+      <td>0.010256</td>
+      <td>0.024905</td>
+      <td>0.094088</td>
+      <td>0.391818</td>
+      <td>0.091549</td>
+      <td>...</td>
+      <td>0.112125</td>
+      <td>0.157845</td>
+      <td>0.104516</td>
+      <td>0.226057</td>
+      <td>0.168417</td>
+      <td>0.045463</td>
+      <td>0.186614</td>
+      <td>0.078860</td>
+      <td>0.249903</td>
+      <td>0.284169</td>
+    </tr>
+    <tr>
+      <th>Vis</th>
+      <td>0.203971</td>
+      <td>0.202653</td>
+      <td>0.383973</td>
+      <td>-0.042707</td>
+      <td>-0.081309</td>
+      <td>-0.008658</td>
+      <td>-0.042281</td>
+      <td>0.189283</td>
+      <td>0.278535</td>
+      <td>0.040542</td>
+      <td>...</td>
+      <td>0.093351</td>
+      <td>0.134375</td>
+      <td>0.110457</td>
+      <td>0.361208</td>
+      <td>0.088744</td>
+      <td>0.052644</td>
+      <td>0.120770</td>
+      <td>0.092525</td>
+      <td>0.118581</td>
+      <td>0.176818</td>
+    </tr>
+    <tr>
+      <th>R LOC</th>
+      <td>0.313199</td>
+      <td>0.311419</td>
+      <td>0.464972</td>
+      <td>-0.031381</td>
+      <td>-0.065442</td>
+      <td>0.031449</td>
+      <td>-0.029851</td>
+      <td>0.149916</td>
+      <td>0.410608</td>
+      <td>0.050728</td>
+      <td>...</td>
+      <td>0.148316</td>
+      <td>0.169889</td>
+      <td>0.103624</td>
+      <td>0.305301</td>
+      <td>0.126406</td>
+      <td>0.104072</td>
+      <td>0.205753</td>
+      <td>0.110457</td>
+      <td>0.238209</td>
+      <td>0.293147</td>
+    </tr>
+    <tr>
+      <th>D ACC</th>
+      <td>0.232764</td>
+      <td>0.231001</td>
+      <td>0.164774</td>
+      <td>-0.124237</td>
+      <td>0.020185</td>
+      <td>0.228909</td>
+      <td>-0.042850</td>
+      <td>0.018620</td>
+      <td>0.275641</td>
+      <td>0.339441</td>
+      <td>...</td>
+      <td>0.378599</td>
+      <td>0.295964</td>
+      <td>0.269199</td>
+      <td>0.150493</td>
+      <td>0.310226</td>
+      <td>0.484166</td>
+      <td>0.343619</td>
+      <td>0.419070</td>
+      <td>0.254878</td>
+      <td>0.256491</td>
+    </tr>
+    <tr>
+      <th>V ACC</th>
+      <td>0.202841</td>
+      <td>0.207131</td>
+      <td>0.163315</td>
+      <td>0.004689</td>
+      <td>0.150581</td>
+      <td>0.408956</td>
+      <td>0.023530</td>
+      <td>0.046572</td>
+      <td>0.218681</td>
+      <td>0.269586</td>
+      <td>...</td>
+      <td>0.360700</td>
+      <td>0.280829</td>
+      <td>0.241310</td>
+      <td>0.038629</td>
+      <td>0.221479</td>
+      <td>0.466850</td>
+      <td>0.303506</td>
+      <td>0.415477</td>
+      <td>0.158720</td>
+      <td>0.182960</td>
+    </tr>
+    <tr>
+      <th>R A Ins</th>
+      <td>0.196484</td>
+      <td>0.196715</td>
+      <td>0.110820</td>
+      <td>-0.174658</td>
+      <td>0.019088</td>
+      <td>0.191395</td>
+      <td>-0.054506</td>
+      <td>-0.009445</td>
+      <td>0.221985</td>
+      <td>0.401941</td>
+      <td>...</td>
+      <td>0.231585</td>
+      <td>0.282738</td>
+      <td>0.280365</td>
+      <td>0.125656</td>
+      <td>0.306673</td>
+      <td>0.429995</td>
+      <td>0.316121</td>
+      <td>0.484290</td>
+      <td>0.210877</td>
+      <td>0.248302</td>
+    </tr>
+    <tr>
+      <th>L STS</th>
+      <td>0.468286</td>
+      <td>0.431932</td>
+      <td>0.294314</td>
+      <td>-0.129197</td>
+      <td>-0.025204</td>
+      <td>0.052367</td>
+      <td>-0.075085</td>
+      <td>-0.022441</td>
+      <td>0.492357</td>
+      <td>0.164106</td>
+      <td>...</td>
+      <td>0.149366</td>
+      <td>0.323007</td>
+      <td>0.280883</td>
+      <td>0.244855</td>
+      <td>0.287381</td>
+      <td>0.436098</td>
+      <td>0.528017</td>
+      <td>0.455170</td>
+      <td>0.447582</td>
+      <td>0.459581</td>
+    </tr>
+    <tr>
+      <th>R STS</th>
+      <td>0.375290</td>
+      <td>0.360383</td>
+      <td>0.272816</td>
+      <td>-0.079989</td>
+      <td>0.022888</td>
+      <td>0.086924</td>
+      <td>-0.044104</td>
+      <td>0.000069</td>
+      <td>0.448073</td>
+      <td>0.158939</td>
+      <td>...</td>
+      <td>0.118219</td>
+      <td>0.339665</td>
+      <td>0.264614</td>
+      <td>0.230148</td>
+      <td>0.279079</td>
+      <td>0.440639</td>
+      <td>0.518736</td>
+      <td>0.455719</td>
+      <td>0.385502</td>
+      <td>0.416224</td>
+    </tr>
+    <tr>
+      <th>L TPJ</th>
+      <td>0.243757</td>
+      <td>0.218514</td>
+      <td>0.234190</td>
+      <td>0.181047</td>
+      <td>0.182090</td>
+      <td>0.223194</td>
+      <td>0.239269</td>
+      <td>0.059679</td>
+      <td>0.311787</td>
+      <td>0.360459</td>
+      <td>...</td>
+      <td>0.429981</td>
+      <td>0.610054</td>
+      <td>0.436324</td>
+      <td>0.184282</td>
+      <td>0.242136</td>
+      <td>0.229173</td>
+      <td>0.261252</td>
+      <td>0.187385</td>
+      <td>0.233892</td>
+      <td>0.192395</td>
+    </tr>
+    <tr>
+      <th>Broca</th>
+      <td>0.193543</td>
+      <td>0.171426</td>
+      <td>0.150992</td>
+      <td>0.016112</td>
+      <td>-0.091393</td>
+      <td>0.118263</td>
+      <td>0.020755</td>
+      <td>0.135943</td>
+      <td>0.203117</td>
+      <td>0.277786</td>
+      <td>...</td>
+      <td>0.506996</td>
+      <td>0.374532</td>
+      <td>0.616148</td>
+      <td>0.242585</td>
+      <td>-0.025230</td>
+      <td>0.360803</td>
+      <td>0.263134</td>
+      <td>0.317845</td>
+      <td>0.152654</td>
+      <td>0.124832</td>
+    </tr>
+    <tr>
+      <th>Sup Front S</th>
+      <td>0.187710</td>
+      <td>0.191201</td>
+      <td>0.162618</td>
+      <td>0.078178</td>
+      <td>0.026600</td>
+      <td>0.253364</td>
+      <td>0.082336</td>
+      <td>0.131882</td>
+      <td>0.252036</td>
+      <td>0.321722</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>0.308623</td>
+      <td>0.398679</td>
+      <td>0.165966</td>
+      <td>0.059869</td>
+      <td>0.277703</td>
+      <td>0.303780</td>
+      <td>0.225180</td>
+      <td>0.079876</td>
+      <td>0.109288</td>
+    </tr>
+    <tr>
+      <th>R TPJ</th>
+      <td>0.164365</td>
+      <td>0.145730</td>
+      <td>0.149518</td>
+      <td>0.029761</td>
+      <td>0.107054</td>
+      <td>0.210990</td>
+      <td>0.123463</td>
+      <td>0.036918</td>
+      <td>0.238690</td>
+      <td>0.294848</td>
+      <td>...</td>
+      <td>0.308623</td>
+      <td>1.000000</td>
+      <td>0.448582</td>
+      <td>0.143203</td>
+      <td>0.212642</td>
+      <td>0.228464</td>
+      <td>0.231618</td>
+      <td>0.241349</td>
+      <td>0.146508</td>
+      <td>0.136421</td>
+    </tr>
+    <tr>
+      <th>R Pars Op</th>
+      <td>0.139000</td>
+      <td>0.106199</td>
+      <td>0.104844</td>
+      <td>-0.057754</td>
+      <td>-0.064841</td>
+      <td>0.101415</td>
+      <td>0.050905</td>
+      <td>0.104544</td>
+      <td>0.193177</td>
+      <td>0.438051</td>
+      <td>...</td>
+      <td>0.398679</td>
+      <td>0.448582</td>
+      <td>1.000000</td>
+      <td>0.248490</td>
+      <td>0.096225</td>
+      <td>0.341226</td>
+      <td>0.282980</td>
+      <td>0.468211</td>
+      <td>0.168444</td>
+      <td>0.172094</td>
+    </tr>
+    <tr>
+      <th>Cereb</th>
+      <td>0.160901</td>
+      <td>0.160628</td>
+      <td>0.240618</td>
+      <td>-0.046867</td>
+      <td>-0.096755</td>
+      <td>-0.039521</td>
+      <td>-0.035837</td>
+      <td>0.112441</td>
+      <td>0.278199</td>
+      <td>0.132872</td>
+      <td>...</td>
+      <td>0.165966</td>
+      <td>0.143203</td>
+      <td>0.248490</td>
+      <td>1.000000</td>
+      <td>0.118694</td>
+      <td>0.168586</td>
+      <td>0.262298</td>
+      <td>0.195770</td>
+      <td>0.169950</td>
+      <td>0.207874</td>
+    </tr>
+    <tr>
+      <th>Dors PCC</th>
+      <td>0.141476</td>
+      <td>0.123911</td>
+      <td>0.216173</td>
+      <td>-0.015133</td>
+      <td>0.233878</td>
+      <td>-0.019831</td>
+      <td>0.143137</td>
+      <td>-0.121793</td>
+      <td>0.385122</td>
+      <td>0.294629</td>
+      <td>...</td>
+      <td>0.059869</td>
+      <td>0.212642</td>
+      <td>0.096225</td>
+      <td>0.118694</td>
+      <td>1.000000</td>
+      <td>0.172550</td>
+      <td>0.304543</td>
+      <td>0.154578</td>
+      <td>0.317983</td>
+      <td>0.317387</td>
+    </tr>
+    <tr>
+      <th>L Ins</th>
+      <td>0.254763</td>
+      <td>0.253044</td>
+      <td>0.155662</td>
+      <td>-0.237673</td>
+      <td>-0.121988</td>
+      <td>0.047874</td>
+      <td>-0.182998</td>
+      <td>0.000832</td>
+      <td>0.246856</td>
+      <td>0.150487</td>
+      <td>...</td>
+      <td>0.277703</td>
+      <td>0.228464</td>
+      <td>0.341226</td>
+      <td>0.168586</td>
+      <td>0.172550</td>
+      <td>1.000000</td>
+      <td>0.509702</td>
+      <td>0.720206</td>
+      <td>0.250896</td>
+      <td>0.281506</td>
+    </tr>
+    <tr>
+      <th>Cing</th>
+      <td>0.382023</td>
+      <td>0.394793</td>
+      <td>0.223019</td>
+      <td>-0.187451</td>
+      <td>-0.111553</td>
+      <td>-0.068672</td>
+      <td>-0.125727</td>
+      <td>0.008614</td>
+      <td>0.434211</td>
+      <td>0.171525</td>
+      <td>...</td>
+      <td>0.303780</td>
+      <td>0.231618</td>
+      <td>0.282980</td>
+      <td>0.262298</td>
+      <td>0.304543</td>
+      <td>0.509702</td>
+      <td>1.000000</td>
+      <td>0.501177</td>
+      <td>0.353148</td>
+      <td>0.427102</td>
+    </tr>
+    <tr>
+      <th>R Ins</th>
+      <td>0.234387</td>
+      <td>0.226349</td>
+      <td>0.112553</td>
+      <td>-0.311885</td>
+      <td>-0.172688</td>
+      <td>-0.006849</td>
+      <td>-0.242219</td>
+      <td>-0.001215</td>
+      <td>0.220535</td>
+      <td>0.199701</td>
+      <td>...</td>
+      <td>0.225180</td>
+      <td>0.241349</td>
+      <td>0.468211</td>
+      <td>0.195770</td>
+      <td>0.154578</td>
+      <td>0.720206</td>
+      <td>0.501177</td>
+      <td>1.000000</td>
+      <td>0.256307</td>
+      <td>0.310489</td>
+    </tr>
+    <tr>
+      <th>L Ant IPS</th>
+      <td>0.380239</td>
+      <td>0.300582</td>
+      <td>0.121608</td>
+      <td>-0.162219</td>
+      <td>-0.149471</td>
+      <td>-0.070474</td>
+      <td>-0.121337</td>
+      <td>0.007786</td>
+      <td>0.470407</td>
+      <td>0.175174</td>
+      <td>...</td>
+      <td>0.079876</td>
+      <td>0.146508</td>
+      <td>0.168444</td>
+      <td>0.169950</td>
+      <td>0.317983</td>
+      <td>0.250896</td>
+      <td>0.353148</td>
+      <td>0.256307</td>
+      <td>1.000000</td>
+      <td>0.713751</td>
+    </tr>
+    <tr>
+      <th>R Ant IPS</th>
+      <td>0.381568</td>
+      <td>0.342406</td>
+      <td>0.163799</td>
+      <td>-0.216600</td>
+      <td>-0.173618</td>
+      <td>-0.077322</td>
+      <td>-0.216231</td>
+      <td>0.012463</td>
+      <td>0.543659</td>
+      <td>0.160887</td>
+      <td>...</td>
+      <td>0.109288</td>
+      <td>0.136421</td>
+      <td>0.172094</td>
+      <td>0.207874</td>
+      <td>0.317387</td>
+      <td>0.281506</td>
+      <td>0.427102</td>
+      <td>0.310489</td>
+      <td>0.713751</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>39 rows × 39 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GSC_covariances_dep.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>L Aud</th>
+      <th>R Aud</th>
+      <th>Striate</th>
+      <th>L DMN</th>
+      <th>Med DMN</th>
+      <th>Front DMN</th>
+      <th>R DMN</th>
+      <th>Occ post</th>
+      <th>Motor</th>
+      <th>R DLPFC</th>
+      <th>...</th>
+      <th>Sup Front S</th>
+      <th>R TPJ</th>
+      <th>R Pars Op</th>
+      <th>Cereb</th>
+      <th>Dors PCC</th>
+      <th>L Ins</th>
+      <th>Cing</th>
+      <th>R Ins</th>
+      <th>L Ant IPS</th>
+      <th>R Ant IPS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L Aud</th>
+      <td>1.000000</td>
+      <td>0.863683</td>
+      <td>0.617724</td>
+      <td>0.098714</td>
+      <td>-0.038518</td>
+      <td>-0.249383</td>
+      <td>0.214160</td>
+      <td>0.280954</td>
+      <td>0.562076</td>
+      <td>0.197000</td>
+      <td>...</td>
+      <td>0.010756</td>
+      <td>0.251799</td>
+      <td>0.108332</td>
+      <td>0.286633</td>
+      <td>0.452958</td>
+      <td>0.182039</td>
+      <td>0.291300</td>
+      <td>-0.015151</td>
+      <td>0.333270</td>
+      <td>0.226463</td>
+    </tr>
+    <tr>
+      <th>R Aud</th>
+      <td>0.863683</td>
+      <td>1.000000</td>
+      <td>0.617721</td>
+      <td>0.089870</td>
+      <td>-0.062214</td>
+      <td>-0.221921</td>
+      <td>0.230728</td>
+      <td>0.284349</td>
+      <td>0.523373</td>
+      <td>0.265652</td>
+      <td>...</td>
+      <td>0.017269</td>
+      <td>0.311556</td>
+      <td>0.123411</td>
+      <td>0.350935</td>
+      <td>0.476658</td>
+      <td>0.235669</td>
+      <td>0.355265</td>
+      <td>0.052710</td>
+      <td>0.256362</td>
+      <td>0.213105</td>
+    </tr>
+    <tr>
+      <th>Striate</th>
+      <td>0.617724</td>
+      <td>0.617721</td>
+      <td>1.000000</td>
+      <td>-0.002543</td>
+      <td>-0.015340</td>
+      <td>-0.147667</td>
+      <td>0.191735</td>
+      <td>0.260023</td>
+      <td>0.661112</td>
+      <td>0.418348</td>
+      <td>...</td>
+      <td>0.131641</td>
+      <td>0.385253</td>
+      <td>0.394537</td>
+      <td>0.440898</td>
+      <td>0.573878</td>
+      <td>0.219765</td>
+      <td>0.272360</td>
+      <td>0.019144</td>
+      <td>0.386343</td>
+      <td>0.370689</td>
+    </tr>
+    <tr>
+      <th>L DMN</th>
+      <td>0.098714</td>
+      <td>0.089870</td>
+      <td>-0.002543</td>
+      <td>1.000000</td>
+      <td>0.468413</td>
+      <td>0.242627</td>
+      <td>0.732315</td>
+      <td>0.208571</td>
+      <td>-0.020530</td>
+      <td>0.377757</td>
+      <td>...</td>
+      <td>0.201256</td>
+      <td>-0.025664</td>
+      <td>0.191462</td>
+      <td>-0.166859</td>
+      <td>-0.113443</td>
+      <td>-0.016284</td>
+      <td>-0.178655</td>
+      <td>-0.054978</td>
+      <td>0.120895</td>
+      <td>-0.157023</td>
+    </tr>
+    <tr>
+      <th>Med DMN</th>
+      <td>-0.038518</td>
+      <td>-0.062214</td>
+      <td>-0.015340</td>
+      <td>0.468413</td>
+      <td>1.000000</td>
+      <td>0.358505</td>
+      <td>0.267446</td>
+      <td>0.105625</td>
+      <td>-0.332911</td>
+      <td>0.462978</td>
+      <td>...</td>
+      <td>-0.231487</td>
+      <td>0.172158</td>
+      <td>0.318773</td>
+      <td>-0.243839</td>
+      <td>0.008547</td>
+      <td>0.266959</td>
+      <td>0.138646</td>
+      <td>0.533224</td>
+      <td>0.072065</td>
+      <td>-0.091328</td>
+    </tr>
+    <tr>
+      <th>Front DMN</th>
+      <td>-0.249383</td>
+      <td>-0.221921</td>
+      <td>-0.147667</td>
+      <td>0.242627</td>
+      <td>0.358505</td>
+      <td>1.000000</td>
+      <td>0.020555</td>
+      <td>-0.327625</td>
+      <td>-0.302263</td>
+      <td>-0.115094</td>
+      <td>...</td>
+      <td>0.356667</td>
+      <td>-0.075448</td>
+      <td>-0.002901</td>
+      <td>-0.245528</td>
+      <td>-0.415967</td>
+      <td>0.152029</td>
+      <td>-0.070452</td>
+      <td>0.255722</td>
+      <td>-0.209726</td>
+      <td>-0.209270</td>
+    </tr>
+    <tr>
+      <th>R DMN</th>
+      <td>0.214160</td>
+      <td>0.230728</td>
+      <td>0.191735</td>
+      <td>0.732315</td>
+      <td>0.267446</td>
+      <td>0.020555</td>
+      <td>1.000000</td>
+      <td>0.309723</td>
+      <td>0.159567</td>
+      <td>0.506717</td>
+      <td>...</td>
+      <td>0.189947</td>
+      <td>0.133763</td>
+      <td>0.273897</td>
+      <td>0.110393</td>
+      <td>0.172848</td>
+      <td>0.120622</td>
+      <td>0.041138</td>
+      <td>-0.146768</td>
+      <td>0.266023</td>
+      <td>-0.117087</td>
+    </tr>
+    <tr>
+      <th>Occ post</th>
+      <td>0.280954</td>
+      <td>0.284349</td>
+      <td>0.260023</td>
+      <td>0.208571</td>
+      <td>0.105625</td>
+      <td>-0.327625</td>
+      <td>0.309723</td>
+      <td>1.000000</td>
+      <td>0.436726</td>
+      <td>0.349386</td>
+      <td>...</td>
+      <td>0.095442</td>
+      <td>0.297827</td>
+      <td>0.433008</td>
+      <td>0.267675</td>
+      <td>0.300594</td>
+      <td>0.315028</td>
+      <td>0.236679</td>
+      <td>0.158979</td>
+      <td>0.531184</td>
+      <td>0.246319</td>
+    </tr>
+    <tr>
+      <th>Motor</th>
+      <td>0.562076</td>
+      <td>0.523373</td>
+      <td>0.661112</td>
+      <td>-0.020530</td>
+      <td>-0.332911</td>
+      <td>-0.302263</td>
+      <td>0.159567</td>
+      <td>0.436726</td>
+      <td>1.000000</td>
+      <td>0.199175</td>
+      <td>...</td>
+      <td>0.301348</td>
+      <td>0.402235</td>
+      <td>0.381977</td>
+      <td>0.456285</td>
+      <td>0.498775</td>
+      <td>0.073883</td>
+      <td>0.243153</td>
+      <td>-0.207019</td>
+      <td>0.451179</td>
+      <td>0.509541</td>
+    </tr>
+    <tr>
+      <th>R DLPFC</th>
+      <td>0.197000</td>
+      <td>0.265652</td>
+      <td>0.418348</td>
+      <td>0.377757</td>
+      <td>0.462978</td>
+      <td>-0.115094</td>
+      <td>0.506717</td>
+      <td>0.349386</td>
+      <td>0.199175</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>-0.033459</td>
+      <td>0.529589</td>
+      <td>0.616645</td>
+      <td>0.146605</td>
+      <td>0.491149</td>
+      <td>0.217553</td>
+      <td>0.190786</td>
+      <td>0.265542</td>
+      <td>0.289921</td>
+      <td>0.199656</td>
+    </tr>
+    <tr>
+      <th>R Front pol</th>
+      <td>0.175172</td>
+      <td>0.151742</td>
+      <td>0.337171</td>
+      <td>0.096099</td>
+      <td>0.042222</td>
+      <td>-0.154827</td>
+      <td>0.070121</td>
+      <td>0.360025</td>
+      <td>0.414448</td>
+      <td>0.447553</td>
+      <td>...</td>
+      <td>0.291114</td>
+      <td>0.305566</td>
+      <td>0.555590</td>
+      <td>0.190847</td>
+      <td>0.098767</td>
+      <td>-0.142668</td>
+      <td>-0.143536</td>
+      <td>0.035429</td>
+      <td>0.086932</td>
+      <td>0.265731</td>
+    </tr>
+    <tr>
+      <th>R Par</th>
+      <td>-0.056265</td>
+      <td>-0.130900</td>
+      <td>0.109065</td>
+      <td>0.197550</td>
+      <td>0.385632</td>
+      <td>-0.084284</td>
+      <td>0.160306</td>
+      <td>0.073085</td>
+      <td>0.028622</td>
+      <td>0.540249</td>
+      <td>...</td>
+      <td>-0.073152</td>
+      <td>0.005799</td>
+      <td>0.263497</td>
+      <td>-0.198660</td>
+      <td>0.058353</td>
+      <td>-0.286765</td>
+      <td>-0.326332</td>
+      <td>-0.066347</td>
+      <td>0.133251</td>
+      <td>0.176060</td>
+    </tr>
+    <tr>
+      <th>R Post Temp</th>
+      <td>-0.058607</td>
+      <td>-0.112293</td>
+      <td>0.132831</td>
+      <td>-0.094292</td>
+      <td>-0.097608</td>
+      <td>-0.346255</td>
+      <td>0.108240</td>
+      <td>0.129448</td>
+      <td>0.255634</td>
+      <td>0.287204</td>
+      <td>...</td>
+      <td>-0.018564</td>
+      <td>0.061989</td>
+      <td>0.238827</td>
+      <td>0.253080</td>
+      <td>0.319255</td>
+      <td>-0.112975</td>
+      <td>-0.037645</td>
+      <td>-0.083054</td>
+      <td>0.109733</td>
+      <td>0.258758</td>
+    </tr>
+    <tr>
+      <th>Basal</th>
+      <td>0.246614</td>
+      <td>0.278579</td>
+      <td>0.497192</td>
+      <td>0.044168</td>
+      <td>0.212060</td>
+      <td>0.107701</td>
+      <td>0.062677</td>
+      <td>0.397596</td>
+      <td>0.385045</td>
+      <td>0.428605</td>
+      <td>...</td>
+      <td>0.147499</td>
+      <td>0.474688</td>
+      <td>0.450959</td>
+      <td>0.437951</td>
+      <td>0.396407</td>
+      <td>0.558655</td>
+      <td>0.523047</td>
+      <td>0.453100</td>
+      <td>0.349112</td>
+      <td>0.401747</td>
+    </tr>
+    <tr>
+      <th>L Par</th>
+      <td>0.114251</td>
+      <td>-0.022683</td>
+      <td>0.253416</td>
+      <td>0.309464</td>
+      <td>0.150099</td>
+      <td>-0.255156</td>
+      <td>0.265104</td>
+      <td>0.276264</td>
+      <td>0.286058</td>
+      <td>0.363528</td>
+      <td>...</td>
+      <td>0.060928</td>
+      <td>-0.006891</td>
+      <td>0.208697</td>
+      <td>-0.123654</td>
+      <td>0.171116</td>
+      <td>-0.295453</td>
+      <td>-0.319893</td>
+      <td>-0.301753</td>
+      <td>0.372632</td>
+      <td>0.104013</td>
+    </tr>
+    <tr>
+      <th>L DLPFC</th>
+      <td>0.327765</td>
+      <td>0.329731</td>
+      <td>0.506915</td>
+      <td>0.533326</td>
+      <td>0.105751</td>
+      <td>0.092034</td>
+      <td>0.534682</td>
+      <td>0.343345</td>
+      <td>0.517286</td>
+      <td>0.520164</td>
+      <td>...</td>
+      <td>0.533014</td>
+      <td>0.269854</td>
+      <td>0.430546</td>
+      <td>0.115135</td>
+      <td>0.254498</td>
+      <td>0.027725</td>
+      <td>-0.025712</td>
+      <td>-0.219035</td>
+      <td>0.386861</td>
+      <td>0.108401</td>
+    </tr>
+    <tr>
+      <th>L Front pol</th>
+      <td>0.321243</td>
+      <td>0.329730</td>
+      <td>0.402161</td>
+      <td>0.206709</td>
+      <td>-0.129653</td>
+      <td>-0.332488</td>
+      <td>0.303244</td>
+      <td>0.565817</td>
+      <td>0.594370</td>
+      <td>0.428648</td>
+      <td>...</td>
+      <td>0.276463</td>
+      <td>0.365627</td>
+      <td>0.468301</td>
+      <td>0.170708</td>
+      <td>0.316795</td>
+      <td>-0.019660</td>
+      <td>-0.051831</td>
+      <td>-0.195211</td>
+      <td>0.427902</td>
+      <td>0.266165</td>
+    </tr>
+    <tr>
+      <th>L IPS</th>
+      <td>0.358925</td>
+      <td>0.346315</td>
+      <td>0.457581</td>
+      <td>-0.220455</td>
+      <td>-0.334492</td>
+      <td>-0.212700</td>
+      <td>-0.058052</td>
+      <td>0.117064</td>
+      <td>0.384478</td>
+      <td>0.023705</td>
+      <td>...</td>
+      <td>-0.016487</td>
+      <td>0.099262</td>
+      <td>0.025999</td>
+      <td>0.259064</td>
+      <td>0.382313</td>
+      <td>0.154415</td>
+      <td>0.162005</td>
+      <td>-0.118903</td>
+      <td>0.483901</td>
+      <td>0.311552</td>
+    </tr>
+    <tr>
+      <th>R IPS</th>
+      <td>0.414261</td>
+      <td>0.406437</td>
+      <td>0.461358</td>
+      <td>-0.112557</td>
+      <td>-0.006351</td>
+      <td>-0.174636</td>
+      <td>0.058637</td>
+      <td>0.115169</td>
+      <td>0.245524</td>
+      <td>0.153396</td>
+      <td>...</td>
+      <td>-0.203918</td>
+      <td>0.156086</td>
+      <td>0.005029</td>
+      <td>0.224335</td>
+      <td>0.521559</td>
+      <td>0.257601</td>
+      <td>0.422030</td>
+      <td>0.061399</td>
+      <td>0.420052</td>
+      <td>0.296065</td>
+    </tr>
+    <tr>
+      <th>L LOC</th>
+      <td>0.405826</td>
+      <td>0.441864</td>
+      <td>0.612385</td>
+      <td>-0.165534</td>
+      <td>-0.166337</td>
+      <td>-0.038346</td>
+      <td>-0.067808</td>
+      <td>-0.087135</td>
+      <td>0.410428</td>
+      <td>0.186923</td>
+      <td>...</td>
+      <td>0.217479</td>
+      <td>0.316033</td>
+      <td>0.199553</td>
+      <td>0.259015</td>
+      <td>0.258130</td>
+      <td>-0.046830</td>
+      <td>0.075561</td>
+      <td>-0.126432</td>
+      <td>0.066074</td>
+      <td>0.281090</td>
+    </tr>
+    <tr>
+      <th>Vis</th>
+      <td>0.339165</td>
+      <td>0.386046</td>
+      <td>0.626448</td>
+      <td>-0.256204</td>
+      <td>-0.158590</td>
+      <td>-0.175875</td>
+      <td>-0.127423</td>
+      <td>0.047275</td>
+      <td>0.460224</td>
+      <td>0.253088</td>
+      <td>...</td>
+      <td>0.016937</td>
+      <td>0.366403</td>
+      <td>0.279568</td>
+      <td>0.473632</td>
+      <td>0.450453</td>
+      <td>0.086427</td>
+      <td>0.213910</td>
+      <td>0.047861</td>
+      <td>0.126561</td>
+      <td>0.413887</td>
+    </tr>
+    <tr>
+      <th>R LOC</th>
+      <td>0.475830</td>
+      <td>0.464593</td>
+      <td>0.702892</td>
+      <td>-0.198359</td>
+      <td>-0.224618</td>
+      <td>-0.069656</td>
+      <td>-0.041324</td>
+      <td>-0.008453</td>
+      <td>0.544032</td>
+      <td>0.137534</td>
+      <td>...</td>
+      <td>0.236872</td>
+      <td>0.254056</td>
+      <td>0.214555</td>
+      <td>0.380842</td>
+      <td>0.366753</td>
+      <td>0.022631</td>
+      <td>0.096719</td>
+      <td>-0.129461</td>
+      <td>0.161979</td>
+      <td>0.302948</td>
+    </tr>
+    <tr>
+      <th>D ACC</th>
+      <td>0.268615</td>
+      <td>0.345578</td>
+      <td>0.364229</td>
+      <td>-0.215911</td>
+      <td>0.074334</td>
+      <td>0.057308</td>
+      <td>-0.143043</td>
+      <td>0.067667</td>
+      <td>0.111652</td>
+      <td>0.237225</td>
+      <td>...</td>
+      <td>-0.020335</td>
+      <td>0.299027</td>
+      <td>0.020192</td>
+      <td>0.208084</td>
+      <td>0.536850</td>
+      <td>0.567260</td>
+      <td>0.520747</td>
+      <td>0.427602</td>
+      <td>0.181426</td>
+      <td>0.106946</td>
+    </tr>
+    <tr>
+      <th>V ACC</th>
+      <td>-0.259859</td>
+      <td>-0.261332</td>
+      <td>-0.066578</td>
+      <td>-0.140895</td>
+      <td>0.321070</td>
+      <td>0.504820</td>
+      <td>-0.366593</td>
+      <td>-0.226942</td>
+      <td>-0.297528</td>
+      <td>0.024360</td>
+      <td>...</td>
+      <td>0.000777</td>
+      <td>0.039841</td>
+      <td>0.033541</td>
+      <td>-0.261632</td>
+      <td>-0.029843</td>
+      <td>0.218249</td>
+      <td>0.050504</td>
+      <td>0.481297</td>
+      <td>-0.079157</td>
+      <td>-0.030099</td>
+    </tr>
+    <tr>
+      <th>R A Ins</th>
+      <td>-0.027444</td>
+      <td>0.049896</td>
+      <td>0.223767</td>
+      <td>-0.199324</td>
+      <td>0.353980</td>
+      <td>0.294928</td>
+      <td>-0.200007</td>
+      <td>-0.115217</td>
+      <td>-0.133970</td>
+      <td>0.322153</td>
+      <td>...</td>
+      <td>0.015894</td>
+      <td>0.285604</td>
+      <td>0.183685</td>
+      <td>0.107181</td>
+      <td>0.251272</td>
+      <td>0.348722</td>
+      <td>0.363348</td>
+      <td>0.590687</td>
+      <td>-0.093693</td>
+      <td>0.108526</td>
+    </tr>
+    <tr>
+      <th>L STS</th>
+      <td>0.401666</td>
+      <td>0.511015</td>
+      <td>0.518347</td>
+      <td>-0.147824</td>
+      <td>0.059715</td>
+      <td>-0.213563</td>
+      <td>0.061774</td>
+      <td>0.380344</td>
+      <td>0.481922</td>
+      <td>0.404639</td>
+      <td>...</td>
+      <td>-0.142831</td>
+      <td>0.702452</td>
+      <td>0.420981</td>
+      <td>0.409243</td>
+      <td>0.680993</td>
+      <td>0.450022</td>
+      <td>0.675374</td>
+      <td>0.297009</td>
+      <td>0.432700</td>
+      <td>0.511402</td>
+    </tr>
+    <tr>
+      <th>R STS</th>
+      <td>0.318138</td>
+      <td>0.370139</td>
+      <td>0.450342</td>
+      <td>-0.136210</td>
+      <td>0.154265</td>
+      <td>-0.206673</td>
+      <td>-0.015915</td>
+      <td>0.424507</td>
+      <td>0.406091</td>
+      <td>0.337203</td>
+      <td>...</td>
+      <td>-0.234192</td>
+      <td>0.668367</td>
+      <td>0.384620</td>
+      <td>0.387711</td>
+      <td>0.637560</td>
+      <td>0.502269</td>
+      <td>0.701730</td>
+      <td>0.410388</td>
+      <td>0.472935</td>
+      <td>0.541172</td>
+    </tr>
+    <tr>
+      <th>L TPJ</th>
+      <td>0.263684</td>
+      <td>0.249174</td>
+      <td>0.414783</td>
+      <td>0.322783</td>
+      <td>0.282775</td>
+      <td>0.204456</td>
+      <td>0.421714</td>
+      <td>0.309278</td>
+      <td>0.414136</td>
+      <td>0.529733</td>
+      <td>...</td>
+      <td>0.461936</td>
+      <td>0.495612</td>
+      <td>0.495691</td>
+      <td>0.136983</td>
+      <td>0.298302</td>
+      <td>0.189329</td>
+      <td>0.192795</td>
+      <td>0.085847</td>
+      <td>0.333150</td>
+      <td>0.195162</td>
+    </tr>
+    <tr>
+      <th>Broca</th>
+      <td>0.203966</td>
+      <td>0.213345</td>
+      <td>0.435676</td>
+      <td>0.215721</td>
+      <td>-0.137514</td>
+      <td>0.074629</td>
+      <td>0.384610</td>
+      <td>0.483480</td>
+      <td>0.601410</td>
+      <td>0.217681</td>
+      <td>...</td>
+      <td>0.565183</td>
+      <td>0.265933</td>
+      <td>0.537582</td>
+      <td>0.309475</td>
+      <td>0.173274</td>
+      <td>0.242596</td>
+      <td>0.094663</td>
+      <td>-0.067953</td>
+      <td>0.397080</td>
+      <td>0.121494</td>
+    </tr>
+    <tr>
+      <th>Sup Front S</th>
+      <td>0.010756</td>
+      <td>0.017269</td>
+      <td>0.131641</td>
+      <td>0.201256</td>
+      <td>-0.231487</td>
+      <td>0.356667</td>
+      <td>0.189947</td>
+      <td>0.095442</td>
+      <td>0.301348</td>
+      <td>-0.033459</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>-0.018379</td>
+      <td>0.092047</td>
+      <td>0.155046</td>
+      <td>-0.192770</td>
+      <td>-0.084871</td>
+      <td>-0.148297</td>
+      <td>-0.252014</td>
+      <td>0.004419</td>
+      <td>0.092058</td>
+    </tr>
+    <tr>
+      <th>R TPJ</th>
+      <td>0.251799</td>
+      <td>0.311556</td>
+      <td>0.385253</td>
+      <td>-0.025664</td>
+      <td>0.172158</td>
+      <td>-0.075448</td>
+      <td>0.133763</td>
+      <td>0.297827</td>
+      <td>0.402235</td>
+      <td>0.529589</td>
+      <td>...</td>
+      <td>-0.018379</td>
+      <td>1.000000</td>
+      <td>0.491947</td>
+      <td>0.313546</td>
+      <td>0.451619</td>
+      <td>0.393147</td>
+      <td>0.409340</td>
+      <td>0.273159</td>
+      <td>0.323639</td>
+      <td>0.356127</td>
+    </tr>
+    <tr>
+      <th>R Pars Op</th>
+      <td>0.108332</td>
+      <td>0.123411</td>
+      <td>0.394537</td>
+      <td>0.191462</td>
+      <td>0.318773</td>
+      <td>-0.002901</td>
+      <td>0.273897</td>
+      <td>0.433008</td>
+      <td>0.381977</td>
+      <td>0.616645</td>
+      <td>...</td>
+      <td>0.092047</td>
+      <td>0.491947</td>
+      <td>1.000000</td>
+      <td>0.294258</td>
+      <td>0.272495</td>
+      <td>0.265882</td>
+      <td>0.200437</td>
+      <td>0.366367</td>
+      <td>0.283687</td>
+      <td>0.256529</td>
+    </tr>
+    <tr>
+      <th>Cereb</th>
+      <td>0.286633</td>
+      <td>0.350935</td>
+      <td>0.440898</td>
+      <td>-0.166859</td>
+      <td>-0.243839</td>
+      <td>-0.245528</td>
+      <td>0.110393</td>
+      <td>0.267675</td>
+      <td>0.456285</td>
+      <td>0.146605</td>
+      <td>...</td>
+      <td>0.155046</td>
+      <td>0.313546</td>
+      <td>0.294258</td>
+      <td>1.000000</td>
+      <td>0.316352</td>
+      <td>0.201712</td>
+      <td>0.365100</td>
+      <td>0.065940</td>
+      <td>0.182917</td>
+      <td>0.303525</td>
+    </tr>
+    <tr>
+      <th>Dors PCC</th>
+      <td>0.452958</td>
+      <td>0.476658</td>
+      <td>0.573878</td>
+      <td>-0.113443</td>
+      <td>0.008547</td>
+      <td>-0.415967</td>
+      <td>0.172848</td>
+      <td>0.300594</td>
+      <td>0.498775</td>
+      <td>0.491149</td>
+      <td>...</td>
+      <td>-0.192770</td>
+      <td>0.451619</td>
+      <td>0.272495</td>
+      <td>0.316352</td>
+      <td>1.000000</td>
+      <td>0.383100</td>
+      <td>0.622743</td>
+      <td>0.178025</td>
+      <td>0.495922</td>
+      <td>0.418616</td>
+    </tr>
+    <tr>
+      <th>L Ins</th>
+      <td>0.182039</td>
+      <td>0.235669</td>
+      <td>0.219765</td>
+      <td>-0.016284</td>
+      <td>0.266959</td>
+      <td>0.152029</td>
+      <td>0.120622</td>
+      <td>0.315028</td>
+      <td>0.073883</td>
+      <td>0.217553</td>
+      <td>...</td>
+      <td>-0.084871</td>
+      <td>0.393147</td>
+      <td>0.265882</td>
+      <td>0.201712</td>
+      <td>0.383100</td>
+      <td>1.000000</td>
+      <td>0.689485</td>
+      <td>0.698238</td>
+      <td>0.428314</td>
+      <td>0.118037</td>
+    </tr>
+    <tr>
+      <th>Cing</th>
+      <td>0.291300</td>
+      <td>0.355265</td>
+      <td>0.272360</td>
+      <td>-0.178655</td>
+      <td>0.138646</td>
+      <td>-0.070452</td>
+      <td>0.041138</td>
+      <td>0.236679</td>
+      <td>0.243153</td>
+      <td>0.190786</td>
+      <td>...</td>
+      <td>-0.148297</td>
+      <td>0.409340</td>
+      <td>0.200437</td>
+      <td>0.365100</td>
+      <td>0.622743</td>
+      <td>0.689485</td>
+      <td>1.000000</td>
+      <td>0.505247</td>
+      <td>0.383370</td>
+      <td>0.366619</td>
+    </tr>
+    <tr>
+      <th>R Ins</th>
+      <td>-0.015151</td>
+      <td>0.052710</td>
+      <td>0.019144</td>
+      <td>-0.054978</td>
+      <td>0.533224</td>
+      <td>0.255722</td>
+      <td>-0.146768</td>
+      <td>0.158979</td>
+      <td>-0.207019</td>
+      <td>0.265542</td>
+      <td>...</td>
+      <td>-0.252014</td>
+      <td>0.273159</td>
+      <td>0.366367</td>
+      <td>0.065940</td>
+      <td>0.178025</td>
+      <td>0.698238</td>
+      <td>0.505247</td>
+      <td>1.000000</td>
+      <td>0.098824</td>
+      <td>0.087081</td>
+    </tr>
+    <tr>
+      <th>L Ant IPS</th>
+      <td>0.333270</td>
+      <td>0.256362</td>
+      <td>0.386343</td>
+      <td>0.120895</td>
+      <td>0.072065</td>
+      <td>-0.209726</td>
+      <td>0.266023</td>
+      <td>0.531184</td>
+      <td>0.451179</td>
+      <td>0.289921</td>
+      <td>...</td>
+      <td>0.004419</td>
+      <td>0.323639</td>
+      <td>0.283687</td>
+      <td>0.182917</td>
+      <td>0.495922</td>
+      <td>0.428314</td>
+      <td>0.383370</td>
+      <td>0.098824</td>
+      <td>1.000000</td>
+      <td>0.455064</td>
+    </tr>
+    <tr>
+      <th>R Ant IPS</th>
+      <td>0.226463</td>
+      <td>0.213105</td>
+      <td>0.370689</td>
+      <td>-0.157023</td>
+      <td>-0.091328</td>
+      <td>-0.209270</td>
+      <td>-0.117087</td>
+      <td>0.246319</td>
+      <td>0.509541</td>
+      <td>0.199656</td>
+      <td>...</td>
+      <td>0.092058</td>
+      <td>0.356127</td>
+      <td>0.256529</td>
+      <td>0.303525</td>
+      <td>0.418616</td>
+      <td>0.118037</td>
+      <td>0.366619</td>
+      <td>0.087081</td>
+      <td>0.455064</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>39 rows × 39 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://st.depositphotos.com/1431107/1631/i/950/depositphotos_16317151-stock-photo-well-done-illustration.jpg&#39;</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span> <span class="k">as</span> <span class="n">url</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temp.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;temp.jpg&#39;</span><span class="p">)</span>
+
+<span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
