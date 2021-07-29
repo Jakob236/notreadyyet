@@ -10,7 +10,7 @@
    - file: lab_notebook_Thielmann
  - file: data_analyses
    sections:
-   - file: Script_preprocessing_with_nipype
+   - file: Skript_Preprocessing_with_nipype
    - file: ICA_Nilearn_dep
    - file: ICA_Nilearn_healthy
  - file: results
