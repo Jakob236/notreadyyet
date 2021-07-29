@@ -11,7 +11,8 @@
  - file: data_analyses
    sections:
    - file: Preprocessing
-   - file: analyse
+   - file: ICA_Nilearn_dep
+   - file: ICA_Nilearn_healthy
  - file: results
  - file: poster_manuscript
  - file: data_access
