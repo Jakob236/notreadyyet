@@ -69,4 +69,17 @@
 - Trying for a few hours to get the linux partition back.
 - Getting the partition back with a slightly different layout.
 - Trying out the ICA with the preprocessed data that Jakob sent me, intstalling GIPC for group comparisons
-- Meeting with Christoph: doing the ICA with NILEARN
+- Meeting with Christoph: doing the ICA with NILEARN and creating connectomes and correlation matrices
+
+#### Week 13: 26.07. - 01.08.2021
+- Trying to add labels to the output of the correlation matrix
+- Getting the error message the ICA was terminated because of excessive memory usage
+- Meeting with Christoph again to finalize the labels of the output
+- Contacting Thomas because of the error
+- After trying a few things, increasing the swap file size fixed the issue.
+- Working on poster design
+- Adding commands in the notebook to save the output as jpg files
+- Literature search about the replication crisis
+- Writing introduction regarding the project and the relevancy
+
+#### Week 14 02.08. - 08.08.2021
