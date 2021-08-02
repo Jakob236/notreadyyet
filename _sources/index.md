@@ -6,20 +6,20 @@ includehidden: true
 titlesonly: true
 ---
 ```
-**Add a logo graphic for your project here.**
+**![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)**
 
 ```{admonition} About the content of this Jupyter Book
 :class: warning
 This page is currently under construction and will be updated continiously.
 Pleae visit this page again in the next feew weeks for further information.
 ```
-**Add your zenodo badge here.***
+**![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)***
 
 # Welcome!
 
-Please write a nice welcome message here, maybe with links to the overview, etc. .
-Also include information what readers/users see here, how to navigate the site, as
-well as the different possibilities with regard to interoperability.  
+Hello everyone and welcome to the our project. We are happy that you are interested in our website!
+We, Jakob Thielmann and Luca Grolms, are currently studying the masters program “Cognitive & Integrative System Neurosciences“ at Philipps University Marburg. On this website we present our project “not ready yet“ that we worked on as part of the module “Methodological work in the neurosciences” during the summer term 2021.
+  
 
 ## What's all this now?
 
