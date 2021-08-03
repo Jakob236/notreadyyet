@@ -10,6 +10,7 @@ First steps from now will be:
 5. Analyse the Data
 6. Show results
 
+![Timeline](https://github.com/Jakob236/notreadyyet/blob/master/project/timeline.png?raw=true)
 Timeline is hard to create tough, maybe one up to two weeks per step.
 
 * What software will be utilized for the different project steps?
