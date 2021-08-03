@@ -25,11 +25,11 @@ Discussing with Luca if we want to try to replicate the findings in the original
 
 Week 4: 24.05. – 30.05.2021
 
-doing literature search about replication studies and brain areas that are specific for depression
+Doing literature search about replication studies and brain areas that are specific for depression
 
 Week 5: 31.05. – 06.06.2021
 
-doing literature search about the effectiveness of psychotherapy
+Doing literature search about the effectiveness of psychotherapy
 
 Week 6: 07.06. – 13.06.2021
 
