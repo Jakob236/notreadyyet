@@ -13,7 +13,7 @@ titlesonly: true
 This page is currently under construction and will be updated continiously.
 Pleae visit this page again in the next feew weeks for further information.
 ```
-**![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/838aa803a1a1cacb7804e2d1f378ce82b67a2948/DepressionBrain.PNG)***
+**![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/838aa803a1a1cacb7804e2d1f378ce82b67a2948/DepressionBrain.PNG?raw=true)***
 
 # Welcome!
 
