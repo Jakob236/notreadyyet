@@ -6,7 +6,7 @@ includehidden: true
 titlesonly: true
 ---
 ```
-**![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)**
+![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)
 
 ```{admonition} About the content of this Jupyter Book
 :class: warning
@@ -17,52 +17,44 @@ Pleae visit this page again in the next feew weeks for further information.
 
 # Welcome!
 
-Hello everyone and welcome to the our project. We are happy that you are interested in our website!
+Hello everyone and welcome to our project. We are happy that you are interested in our website!
 We, Jakob Thielmann and Luca Grolms, are currently studying the masters program “Cognitive & Integrative System Neurosciences“ at Philipps University Marburg. On this website we present our project “not ready yet“ that we worked on as part of the module “Methodological work in the neurosciences” during the summer term 2021.
   
 
 ## What's all this now?
 
-Please provide general information and motivation here, as well as links to the
-specific sections.
+At first we have to admit, that our project name "not ready yet" is a result of our lack of creativity. So there's no correlation to our project. 
+Correlation? Oh what a transition to our real topic, the effect of depression on our brain. In this project we would like to reproduce a study with the same data set but different processing tools. At the end we will compare our results to the results of the publication.
+
 
 The project includes the following parts:
 
 * [Overview & motivation]()
 
-   You can put an informative one-liner here.
 
 * [Project outline & management plan]()
 
-   You can put an informative one-liner here.
 
 * [Dataset & management plan]()
 
-   You can put an informative one-liner here.
 
 * [Pre-registration]()
 
-   You can put an informative one-liner here.
 
 * [Open lab notebook]()
-
-   You can put an informative one-liner here.   
+ 
       
 * [Data analyses]()
 
-   You can put an informative one-liner here.
    
 * [Results & outcomes]()
 
-   You can put an informative one-liner here.
 
 * [Poster & manuscript]()
 
-   You can put an informative one-liner here.
 
 * [Data access]()
 
-   You can put an informative one-liner here.
 
 * [Code of Conduct](https://g0rella.github.io/gorella_overview/CoC.html)
 
@@ -70,5 +62,4 @@ The project includes the following parts:
 
 ## I've got a question!
 
-Provide information on how readers/users can get in contact with you, ask questions,
-report issues, etc. .
+If you have any questions about us or the topic you are free to contact us. Feedback, positiv or negativ is always helpful so don't hesitate:) You can contact us on the GitHub website of the notreadyyet project or via email (thielmaj@students.uni-marburg.de & grolms@students.uni-marburg.de)
