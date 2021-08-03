@@ -19,7 +19,7 @@ Timeline is hard to create tough, maybe one up to two weeks per step.
 
 ##### What software will be utilized for the different project steps?
 
-We are going to use jupyter notebook based with different modules like mriqc, mriqceptin, nipype and CanICA, all based on python. 
+We are going to use jupyter notebook based with different modules like nriqc, nriqception, Nipype and CanICA, all based on python. 
 
 ##### What computing environment will be utilized for the different project steps?
 
