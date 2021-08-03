@@ -6,7 +6,7 @@ includehidden: true
 titlesonly: true
 ---
 ```
-![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/DepressionBrain.PNG)
+![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/master/depbrain.png)
 
 ```{admonition} About the content of this Jupyter Book
 :class: warning
