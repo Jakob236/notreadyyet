@@ -8,6 +8,9 @@ titlesonly: true
 ```
 ![Effects of Depression on Brain Activity](https://github.com/Jakob236/notreadyyet/blob/838aa803a1a1cacb7804e2d1f378ce82b67a2948/depbrain.png)
 
+![permalink](https://github.com/Jakob236/notreadyyet/blob/0c2726bb9b64a4d9d1a0df0465fec2974a77b454/depbrain.png)
+![Bildadresse](https://github.com/Jakob236/notreadyyet/blob/master/depbrain.png?raw=true)
+
 ```{admonition} About the content of this Jupyter Book
 :class: warning
 This page is currently under construction and will be updated continiously.
