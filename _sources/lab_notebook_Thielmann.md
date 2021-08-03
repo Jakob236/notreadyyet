@@ -70,9 +70,19 @@ Checked the results in mrcicron. Realigned .nii seems to be a bit squeezed, no i
 
 
 Week 12: 19.07. - 25.07.2021
-Downloaded Gift 3.0 for group ICA. Made some analysis with Gift and checked the different components.
+Downloaded Gift 3.0 for group ICA. Made some analysis with Gift and checked the different components with nilearn. 
 After meeting with Christoph we decided to use Nilearn instead of Gift 3.0. 
 Created/copied the ICA Nilearn script and let it run on all, only healthy and only depressive participants. 
 Checked the results.
 
 Looking for a tool to compare these group analysis with each other, decided to use "9.4.7. Group Sparse inverse covariance for multi-subject connectome".
+
+Week 13: 26.07. - 01.08.2021
+We used the data of the ICA analysis (Week 12) to extract the different regions of the 20 extrcted components. Decided for a size of 100 voxel activation pattern for further analysis. 
+So much time solo and troubleshooting with Christoph about the labeling of the matrices.
+Extracted the different timeseries with nilearn and imported the atlas for labeling the matrices later.
+Plotted the correlation and precision matrices aswell the connectomes.
+Also much time with saving the matrices (error cause of function) and again troubleshooting with Christoph. 
+End of coding. Finally.
+
+Week 14: 02.08. - 08.08.2021
