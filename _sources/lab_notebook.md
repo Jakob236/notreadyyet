@@ -1,2 +1,2 @@
-# lab notebook
+# Lab notebook
 In the following section the lab notebooks of Luca and Jakob are presented. Have fun to watch our steps of success and a lot of failure...
