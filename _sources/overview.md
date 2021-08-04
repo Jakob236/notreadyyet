@@ -11,4 +11,17 @@ This is relevant because the study aspires to identify concrete differences with
 
 * What is the motivation to conduct the project?
 
+The motivation to conduct this project is that we both want to focus our masters program in terms of methodic on MRI. Therefore, we wanted to get more experienced how data preprocessing and analysis work in this field. The focus was on examining the effects of depression on brain activity as it is one of neuropsychiatric diseases with a high prevalence that causes a lot of direct and indirect costs in the health system. That means it is important to treat it effectively and to understand the underlaying mechanisms of this disease.
+The so called “replication crisis” was also interesting as it is a hot topic that causes a lot of rethinking in the area of neuroscience.
+
+
 * What is the proposed approach to conduct the project?
+
+- Literature search
+- Selecting dataset that was already part of a published study
+- Formulate hypotheses
+- Data preprocessing
+- Data analysis
+- Preparing a poster
+- Talk
+
