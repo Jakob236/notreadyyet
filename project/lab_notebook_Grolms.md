@@ -83,3 +83,9 @@
 - Writing introduction regarding the project and the relevancy
 
 #### Week 14 02.08. - 08.08.2021
+- trying to change the size of the project logo
+- working on the website
+- evaluating our results, categorizing the brain areas into networks to compare the results to the results of the original study
+- summarizing the results of the original study
+- Literature search about brain networks and functions of certain areas that were relevant in our results
+- Linux partition died again
