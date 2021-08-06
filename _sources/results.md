@@ -3,8 +3,10 @@
 * What results did the applied analyses yield?
 
 ### Hypothesis 1
+* The first hypothesis was that functional connectivity differs between depressed patients and healthy controls.
 
 ### Hypothesis 2
+* The second hypothesis was that replicating the methods that were used in the original study but using different analysis and preprocessing tools (mriqc, Nilearn, Nipype) would lead to different results regarding the differences in functional connectivity between depressed patients and healthy controls.
 
 * Were there other outcomes of the project (e.g. software, etc.)?
 
