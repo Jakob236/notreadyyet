@@ -1,7 +1,5 @@
 # Results & outcomes
 
-Please provide information on the obtained results and all other outcomes of the project.
-
 * What results did the applied analyses yield?
 
 ### Hypothesis 1
@@ -9,3 +7,12 @@ Please provide information on the obtained results and all other outcomes of the
 ### Hypothesis 2
 
 * Were there other outcomes of the project (e.g. software, etc.)?
+
+* At first the main results of Bezmaternykh et al. (2021) regarding the differences in functional connectivity between the two groups were evaluated.
+Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for connectivity differences (Table 3 & Figure 1) between the depressed and control group. They found decreased functional connectivity within the default mode network (DMN) which is not inline with the majority of other studies in this field. Moreover, a global increase of functional connectivity was found in the depressive group between the DMN and the executive control network (ECN). This is also not a typical finding for patients with depression. Another notable result was the overconnectivity of the medial visual cortex (mVis) with the audial cortex (AN) in the depressive group.
+
+![Table 1 (Bezmaternykh et al., 2021, p. 5)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Table%202%20Paper.PNG?raw=true)
+
+![Table 2 (Bezmaternykh et al., 2021, p. 6)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Table%203%20Paper.PNG?raw=true)
+
+![Figure 1 (Bezmaternykh et al., 2021, p. 6)](  https://github.com/Jakob236/notreadyyet/blob/master/project/Figure%201%20Paper.PNG?raw=true)
