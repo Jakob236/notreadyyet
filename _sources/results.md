@@ -18,3 +18,13 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 ![Table 2 (Bezmaternykh et al., 2021, p. 6)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Table%203%20Paper.PNG?raw=true)
 
 ![Figure 1 (Bezmaternykh et al., 2021, p. 6)](  https://github.com/Jakob236/notreadyyet/blob/master/project/Figure%201%20Paper.PNG?raw=true)
+
+
+
+
+
+
+* In the table below the areas are listed that showed the biggest correlation coefficient differences when comparing both groups.
+
+
+![Table 3 (Most important brain areas of the analysis)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table.PNG?raw=true)
