@@ -9,7 +9,7 @@ titlesonly: true
 
 **<img src="https://github.com/Jakob236/notreadyyet/blob/master/project/DepressionBrain.png?raw=true" width="600" height="500"/>**
 
-**<img src="https://github.com/Jakob236/notreadyyet/blob/838aa803a1a1cacb7804e2d1f378ce82b67a2948/DepressionBrain.PNG?raw=true" width="350" height="350"/>**
+##**<img src="https://github.com/Jakob236/notreadyyet/blob/838aa803a1a1cacb7804e2d1f378ce82b67a2948/DepressionBrain.PNG?raw=true" width="350" height="350"/>**
 
 ```{admonition} About the content of this Jupyter Book
 :class: warning
