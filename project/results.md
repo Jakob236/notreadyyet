@@ -44,3 +44,10 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 
 ![Table 5 (Results DMN)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table%20-%20DMN.PNG?raw=true)
   
+## Conclusion
+* First, it was hypothesized that functional connectivity differs between depressed patients and healthy controls. This hypothesis is seen as confirmed because big differences in correlation were found for multiple brain areas.
+Differences between the two groups are in line with Bezmaternykh et al. (2021) as well as with further studies.
+The second hypothesis was that the use of different preprocessing and analysis tools would lead to different results. This hypothesis was confirmed too.
+Bezmaternykh et al. (2021) found decreased connectivity for the depressed group within the default mode network (DMN). This was not the case in this analysis. DMN connectivity (R Par – Cing) was increased in the depressed group. When looking at broader areas rather than specific regions in the DMN, a higher correlation coefficient in the healthy group could only be found for L DMN - Front DMN, L DMN - R DMN and Med DMN - Front DMN.
+Furthermore, big correlation coefficient differences were found between the groups for areas from the language network with the sensorimotor network (Broca - Motor), between the language network and the dorsal attention network (Broca - L Ant IPS) and the salience network and the sensorimotor network (V ACC - Motor). These results were not found in the original study.
+In conclusion, functional brain connectivity differs between healthy and depressed subjects. This can be found in this study as well as in the study by Bezmaternykh et al. (2021) . However, the try replicate the concrete differences with different tools, was unsuccessful.
