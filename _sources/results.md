@@ -27,7 +27,7 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 * In the table below the areas are listed that showed the biggest correlation coefficient differences when comparing both groups.
 
 
-![Table 3 (Most important brain areas of the analysis)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table.PNG?raw=true)
+![Table 4 (Most important brain areas of the analysis)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table%20-%20biggest%20differences.PNG?raw=true)
 * To compare our results with the results of (Bezmaternykh et al., 2021) we needed to categorize the brain areas into the networks they belong to. 
   * Motor was categorized as sensorimotor network.
   * L Ant IPS was categorized as dorsal attention network.
@@ -35,4 +35,8 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
   * V ACC was categorized as salience network.
   * R Par was categorized as default mode network.
   * Broca was categorized as language network.
+
+* The table below displays the correlation coefficient differences within the default mode network (DMN).
+
+![Table 5 (Results DMN)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table%20-%20DMN.PNG?raw=true)
   
