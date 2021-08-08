@@ -32,7 +32,7 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
   * Motor was categorized as sensorimotor network.
   * L Ant IPS was categorized as dorsal attention network.
   * Cing was categorized as default mode network.
-  * V ACC was categorized as salience network,
+  * V ACC was categorized as salience network.
   * R Par was categorized as default mode network.
   * Broca was categorized as language network.
   
