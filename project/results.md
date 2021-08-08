@@ -28,3 +28,11 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 
 
 ![Table 3 (Most important brain areas of the analysis)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table.PNG?raw=true)
+* To compare our results with the results of (Bezmaternykh et al., 2021) we needed to categorize the brain areas into the networks they belong to. 
+  * Motor was categorized as sensorimotor network.
+  * L Ant IPS was categorized as dorsal attention network.
+  * Cing was categorized as default mode network.
+  * V ACC was categorized as salience network,
+  * R Par was categorized as deafult mode ntwork.
+  * Broca was categorized as language network.
+  
