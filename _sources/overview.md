@@ -18,12 +18,12 @@ The so called “replication crisis” was also interesting as it is a hot topic
 
 * What is the proposed approach to conduct the project?
 
-- Literature search
-- Selecting dataset that was already part of a published study
-- Formulate hypotheses
-- pre-registration
-- Data preprocessing
-- Data analysis
-- Preparing a poster
-- Talk
+  * Literature search
+  * Selecting dataset that was already part of a published study
+  * Formulate hypotheses
+  * pre-registration
+  * Data preprocessing
+  * Data analysis
+  * Preparing a poster
+  * Talk
 
