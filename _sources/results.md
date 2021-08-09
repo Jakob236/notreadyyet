@@ -51,7 +51,7 @@ When looking at broader areas rather than specific regions in the DMN, a higher 
 
   
 ## Discussion
-* First, it was hypothesized that functional connectivity differs between depressed patients and healthy controls. This hypothesis is seen as confirmed because big differences in correlation were found for multiple brain areas 
+First, it was hypothesized that functional connectivity differs between depressed patients and healthy controls. This hypothesis is seen as confirmed because big differences in correlation were found for multiple brain areas 
 Differences between the two groups are in line with Bezmaternykh et al. (2021) as well as with further studies.
 The second hypothesis was that the use of different preprocessing and analysis tools would lead to different results. This hypothesis was confirmed too.
 Bezmaternykh et al. (2021) found decreased connectivity for the depressed group within the default mode network (DMN). This was not completely the case in this analysis. DMN connectivity (R Par – Cing) was increased in the depressed group. This finding is in line with further studies (Dai et al., 2019).
