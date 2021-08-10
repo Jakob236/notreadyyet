@@ -53,7 +53,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Results &amp; outcomes" href="results.html" />
-    <link rel="prev" title="In this script we are going to process our fmri data with nipype" href="Skript_Preprocessing_with_nipype.html" />
+    <link rel="prev" title="Independet Component Analysis with Nilearn (depressiv subjects)" href="ICA_Nilearn_dep.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -137,6 +137,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="Skript_Preprocessing_with_nipype.html">
      In this script we are going to process our fmri data with nipype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ICA_Nilearn_dep.html">
+     Independet Component Analysis with Nilearn (depressiv subjects)
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -278,73 +283,38 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts">
-   We are working with 2 different datasets, so we created a list with the corresponding files. We exluded 3 subjects, subject 17, 39 and 48 because of to much movement or artefacts.
+  <a class="reference internal nav-link" href="#data-import">
+   Data import
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group">
-   Checking the subject list if everything worked well. In this case we are working with the depressiv group.
+  <a class="reference internal nav-link" href="#run-ica">
+   Run ICA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group">
-   Now we are running the ICA (indipendent component analysis with 20 different components. We made this twice, once with the depressiv group and once with the healthy control group.
+  <a class="reference internal nav-link" href="#ica-plotting">
+   ICA plotting
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue">
-   In case you don’t make this whole script in one time you can start here now loading the created ICA file to continue.
+  <a class="reference internal nav-link" href="#region-extraction">
+   Region extraction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-we-plot-the-calculated-components-by-canica">
-   Here we plot the calculated components by CanICA.
+  <a class="reference internal nav-link" href="#timeseries-extraction">
+   Timeseries extraction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size">
-   Next step is to extract the different regions of the 20 components. Therefore we used the nilearn region extractor with a min region size of 2000. That corresponds to about 100 voxel (2x2x5mm voxel size).
+  <a class="reference internal nav-link" href="#atlas-import">
+   Atlas import
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects">
-   Now we are ready to extract the different timeseries of the subjects.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-the-atlas-for-labeling-the-matrices-later">
-   Importing the atlas for labeling the matrices later
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv">
-   We use two different ways to compute the precision and correlation, GraphicalLassoCV and GroupSparseCovarianceCV
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-a-function-to-plot-the-matrices-easier">
-   Define a function to plot the matrices easier.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-the-connectomes-and-matrices">
-   Plot the connectomes and matrices
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-the-matrices">
-   Save the matrices
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-the-precision-matrix">
-   Save the precision matrix
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file">
-   Matrices are nice to see but we look also for the exactly figures and saving the as .csv file.
+  <a class="reference internal nav-link" href="#correlation-matrices-and-connectomes">
+   Correlation matrices and connectomes
   </a>
  </li>
 </ul>
@@ -376,8 +346,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts">
-<h2>We are working with 2 different datasets, so we created a list with the corresponding files. We exluded 3 subjects, subject 17, 39 and 48 because of to much movement or artefacts.<a class="headerlink" href="#we-are-working-with-2-different-datasets-so-we-created-a-list-with-the-corresponding-files-we-exluded-3-subjects-subject-17-39-and-48-because-of-to-much-movement-or-artefacts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-import">
+<h2>Data import<a class="headerlink" href="#data-import" title="Permalink to this headline">¶</a></h2>
+<p>We are working with 2 different datasets, so we created a list with the corresponding files. We exluded 3 subjects, subject 17, 39 and 48 because of to much movement or artefacts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files_list</span><span class="o">=</span><span class="p">[]</span>
@@ -394,9 +365,7 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group">
-<h2>Checking the subject list if everything worked well. In this case we are working with the depressiv group.<a class="headerlink" href="#checking-the-subject-list-if-everything-worked-well-in-this-case-we-are-working-with-the-depressiv-group" title="Permalink to this headline">¶</a></h2>
+<p>Checking the subject list if everything worked well. In this case we are working with the depressiv group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files_list</span><span class="p">:</span>
@@ -431,8 +400,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group">
-<h2>Now we are running the ICA (indipendent component analysis with 20 different components. We made this twice, once with the depressiv group and once with the healthy control group.<a class="headerlink" href="#now-we-are-running-the-ica-indipendent-component-analysis-with-20-different-components-we-made-this-twice-once-with-the-depressiv-group-and-once-with-the-healthy-control-group" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run-ica">
+<h2>Run ICA<a class="headerlink" href="#run-ica" title="Permalink to this headline">¶</a></h2>
+<p>Now we are running the ICA (indipendent component analysis with 20 different components. We made this twice, once with the depressiv group and once with the healthy control group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canica</span> <span class="o">=</span> <span class="n">CanICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -493,9 +463,7 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue">
-<h2>In case you don’t make this whole script in one time you can start here now loading the created ICA file to continue.<a class="headerlink" href="#in-case-you-don-t-make-this-whole-script-in-one-time-you-can-start-here-now-loading-the-created-ica-file-to-continue" title="Permalink to this headline">¶</a></h2>
+<p>In case you don’t make this whole script in one time you can start here now loading the created ICA file to continue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only run for plotting without processing or further processing of the ICA data without CanICA them again</span>
@@ -505,8 +473,9 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 </div>
 </div>
 </div>
-<div class="section" id="here-we-plot-the-calculated-components-by-canica">
-<h2>Here we plot the calculated components by CanICA.<a class="headerlink" href="#here-we-plot-the-calculated-components-by-canica" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ica-plotting">
+<h2>ICA plotting<a class="headerlink" href="#ica-plotting" title="Permalink to this headline">¶</a></h2>
+<p>Here we plot the calculated components by CanICA.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all ICA components together</span>
@@ -526,7 +495,7 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer at 0x7fc04b6cb0d0&gt;
 </pre></div>
 </div>
-<img alt="_images/ICA_Nilearn_healthy_11_2.png" src="_images/ICA_Nilearn_healthy_11_2.png" />
+<img alt="_images/ICA_Nilearn_healthy_14_2.png" src="_images/ICA_Nilearn_healthy_14_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -539,31 +508,32 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ICA_Nilearn_healthy_12_0.png" src="_images/ICA_Nilearn_healthy_12_0.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_1.png" src="_images/ICA_Nilearn_healthy_12_1.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_2.png" src="_images/ICA_Nilearn_healthy_12_2.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_3.png" src="_images/ICA_Nilearn_healthy_12_3.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_4.png" src="_images/ICA_Nilearn_healthy_12_4.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_5.png" src="_images/ICA_Nilearn_healthy_12_5.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_6.png" src="_images/ICA_Nilearn_healthy_12_6.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_7.png" src="_images/ICA_Nilearn_healthy_12_7.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_8.png" src="_images/ICA_Nilearn_healthy_12_8.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_9.png" src="_images/ICA_Nilearn_healthy_12_9.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_10.png" src="_images/ICA_Nilearn_healthy_12_10.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_11.png" src="_images/ICA_Nilearn_healthy_12_11.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_12.png" src="_images/ICA_Nilearn_healthy_12_12.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_13.png" src="_images/ICA_Nilearn_healthy_12_13.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_14.png" src="_images/ICA_Nilearn_healthy_12_14.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_15.png" src="_images/ICA_Nilearn_healthy_12_15.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_16.png" src="_images/ICA_Nilearn_healthy_12_16.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_17.png" src="_images/ICA_Nilearn_healthy_12_17.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_18.png" src="_images/ICA_Nilearn_healthy_12_18.png" />
-<img alt="_images/ICA_Nilearn_healthy_12_19.png" src="_images/ICA_Nilearn_healthy_12_19.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_0.png" src="_images/ICA_Nilearn_healthy_15_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_1.png" src="_images/ICA_Nilearn_healthy_15_1.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_2.png" src="_images/ICA_Nilearn_healthy_15_2.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_3.png" src="_images/ICA_Nilearn_healthy_15_3.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_4.png" src="_images/ICA_Nilearn_healthy_15_4.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_5.png" src="_images/ICA_Nilearn_healthy_15_5.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_6.png" src="_images/ICA_Nilearn_healthy_15_6.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_7.png" src="_images/ICA_Nilearn_healthy_15_7.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_8.png" src="_images/ICA_Nilearn_healthy_15_8.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_9.png" src="_images/ICA_Nilearn_healthy_15_9.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_10.png" src="_images/ICA_Nilearn_healthy_15_10.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_11.png" src="_images/ICA_Nilearn_healthy_15_11.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_12.png" src="_images/ICA_Nilearn_healthy_15_12.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_13.png" src="_images/ICA_Nilearn_healthy_15_13.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_14.png" src="_images/ICA_Nilearn_healthy_15_14.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_15.png" src="_images/ICA_Nilearn_healthy_15_15.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_16.png" src="_images/ICA_Nilearn_healthy_15_16.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_17.png" src="_images/ICA_Nilearn_healthy_15_17.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_18.png" src="_images/ICA_Nilearn_healthy_15_18.png" />
+<img alt="_images/ICA_Nilearn_healthy_15_19.png" src="_images/ICA_Nilearn_healthy_15_19.png" />
 </div>
 </div>
 </div>
-<div class="section" id="next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size">
-<h2>Next step is to extract the different regions of the 20 components. Therefore we used the nilearn region extractor with a min region size of 2000. That corresponds to about 100 voxel (2x2x5mm voxel size).<a class="headerlink" href="#next-step-is-to-extract-the-different-regions-of-the-20-components-therefore-we-used-the-nilearn-region-extractor-with-a-min-region-size-of-2000-that-corresponds-to-about-100-voxel-2x2x5mm-voxel-size" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="region-extraction">
+<h2>Region extraction<a class="headerlink" href="#region-extraction" title="Permalink to this headline">¶</a></h2>
+<p>Next step is to extract the different regions of the 20 components. Therefore we used the nilearn region extractor with a min region size of 2000. That corresponds to about 100 voxel (2x2x5mm voxel size).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components_img</span><span class="o">=</span><span class="n">canica_components_img</span>
@@ -618,15 +588,16 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
   im = getattr(ax, type)(data_2d.copy(),
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer at 0x7fc0083f88b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer at 0x7f9aae611820&gt;
 </pre></div>
 </div>
-<img alt="_images/ICA_Nilearn_healthy_15_2.png" src="_images/ICA_Nilearn_healthy_15_2.png" />
+<img alt="_images/ICA_Nilearn_healthy_19_2.png" src="_images/ICA_Nilearn_healthy_19_2.png" />
 </div>
 </div>
 </div>
-<div class="section" id="now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects">
-<h2>Now we are ready to extract the different timeseries of the subjects.<a class="headerlink" href="#now-we-are-ready-to-extract-the-different-timeseries-of-the-subjects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="timeseries-extraction">
+<h2>Timeseries extraction<a class="headerlink" href="#timeseries-extraction" title="Permalink to this headline">¶</a></h2>
+<p>Now we are ready to extract the different timeseries of the subjects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we need to do subjects timeseries signals extraction and then estimating</span>
@@ -656,8 +627,9 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 </div>
 </div>
 </div>
-<div class="section" id="importing-the-atlas-for-labeling-the-matrices-later">
-<h2>Importing the atlas for labeling the matrices later<a class="headerlink" href="#importing-the-atlas-for-labeling-the-matrices-later" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="atlas-import">
+<h2>Atlas import<a class="headerlink" href="#atlas-import" title="Permalink to this headline">¶</a></h2>
+<p>Importing the atlas for labeling the matrices later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
@@ -692,54 +664,21 @@ ______________________________________randomized_svd cache loaded - 0.1s, 0.0min
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[NiftiMapsMasker.fit] loading regions from /home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii
+Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jt/.local/lib/python3.8/site-packages/nilearn/image/image.py:1054: FutureWarning: The parameter &quot;sessions&quot; will be removed in 0.9.0 release of Nilearn. Please use the parameter &quot;runs&quot; instead.
   data = signal.clean(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.7s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc008395b80&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.173922, ...,  0.16731 ],
-       ...,
-       [ 0.215147, ...,  0.067081]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-52/task-restingstatewithclosedeyes/fwhm-8_swarsub-52_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Memory]0.0s, 0.0min    : Loading high_variance_confounds...
+[Memory]0.1s, 0.0min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.5s, 0.0min
+[Memory]0.1s, 0.0min    : Loading high_variance_confounds...
 ________________________________________________________________________________
 [Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
 filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-restingstatewithclosedeyes/fwhm-8_swarsub-53_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a164730&gt;, 
+&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7f9aac7b0d60&gt;, 
 { &#39;allow_overlap&#39;: True,
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -765,649 +704,70 @@ filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-53/task-res
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 6.9s, 0.1min
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084d8d30&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.181957, ..., -0.230222],
-       ...,
-       [ 0.07755 , ..., -0.149199]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-54/task-restingstatewithclosedeyes/fwhm-8_swarsub-54_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+[Memory]7.1s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.2s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a068c70&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.069788, ..., -0.034676],
-       ...,
-       [-0.013775, ..., -0.089689]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-55/task-restingstatewithclosedeyes/fwhm-8_swarsub-55_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+[Memory]7.2s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.2s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.6s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026762670&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.009714, ..., -0.02162 ],
-       ...,
-       [ 0.051722, ..., -0.035099]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-56/task-restingstatewithclosedeyes/fwhm-8_swarsub-56_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 6.9s, 0.1min
+[Memory]7.2s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.3s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.6s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc049ff05b0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.215107, ...,  0.057233],
-       ...,
-       [ 0.024056, ...,  0.059524]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-57/task-restingstatewithclosedeyes/fwhm-8_swarsub-57_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 6.9s, 0.1min
+[Memory]7.3s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.4s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084d8c40&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.188373, ...,  0.141604],
-       ...,
-       [-0.097708, ..., -0.029626]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-58/task-restingstatewithclosedeyes/fwhm-8_swarsub-58_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.2s, 0.1min
+[Memory]7.4s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.5s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.3s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084e27f0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.210932, ...,  0.007137],
-       ...,
-       [-0.041109, ...,  0.255932]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-59/task-restingstatewithclosedeyes/fwhm-8_swarsub-59_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.2s, 0.1min
+[Memory]7.5s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.5s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a2265e0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.040403, ...,  0.054425],
-       ...,
-       [ 0.04692 , ..., -0.053091]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-60/task-restingstatewithclosedeyes/fwhm-8_swarsub-60_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.4s, 0.1min
+[Memory]7.5s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.6s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.3s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a1643a0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.106252, ..., -0.071942],
-       ...,
-       [ 0.008595, ..., -0.025874]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-61/task-restingstatewithclosedeyes/fwhm-8_swarsub-61_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.2s, 0.1min
+[Memory]7.6s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.7s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc06818afa0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.023995, ...,  0.016786],
-       ...,
-       [-0.131352, ..., -0.105799]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-62/task-restingstatewithclosedeyes/fwhm-8_swarsub-62_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.1s, 0.1min
+[Memory]7.7s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.8s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0265f4b20&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.062443, ...,  0.203875],
-       ...,
-       [-0.147959, ..., -0.053051]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-63/task-restingstatewithclosedeyes/fwhm-8_swarsub-63_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+[Memory]7.8s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.8s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483d00&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.001694, ...,  0.124973],
-       ...,
-       [ 0.12469 , ...,  0.074995]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-64/task-restingstatewithclosedeyes/fwhm-8_swarsub-64_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.2s, 0.1min
+[Memory]7.8s, 0.1min    : Loading high_variance_confounds...
+[Memory]7.9s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026221340&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.025259, ...,  0.123656],
-       ...,
-       [ 0.072288, ...,  0.157458]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-65/task-restingstatewithclosedeyes/fwhm-8_swarsub-65_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.1s, 0.1min
+[Memory]7.9s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.0s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084be100&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.008878, ..., -0.184763],
-       ...,
-       [ 0.068402, ..., -0.06883 ]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-66/task-restingstatewithclosedeyes/fwhm-8_swarsub-66_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+[Memory]8.0s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.1s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.2s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc0084b8190&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[0.190219, ..., 0.102057],
-       ...,
-       [0.191617, ..., 0.019988]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-67/task-restingstatewithclosedeyes/fwhm-8_swarsub-67_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 6.9s, 0.1min
+[Memory]8.1s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.1s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.3s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc00bbf1be0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.006067, ..., -0.168544],
-       ...,
-       [-0.087805, ...,  0.178932]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-68/task-restingstatewithclosedeyes/fwhm-8_swarsub-68_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.1s, 0.1min
+[Memory]8.1s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.2s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a2265e0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[0.013709, ..., 0.083154],
-       ...,
-       [0.054306, ..., 0.123584]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-69/task-restingstatewithclosedeyes/fwhm-8_swarsub-69_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.3s, 0.1min
+[Memory]8.2s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.3s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483ca0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.167653, ...,  0.022947],
-       ...,
-       [ 0.071777, ..., -0.036161]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-70/task-restingstatewithclosedeyes/fwhm-8_swarsub-70_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.2s, 0.1min
+[Memory]8.3s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.3s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii&#39;)
-__________________________________________high_variance_confounds - 2.3s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc026483ca0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[-0.103602, ..., -0.168443],
-       ...,
-       [ 0.108778, ...,  0.095781]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-71/task-restingstatewithclosedeyes/fwhm-8_swarsub-71_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.0s, 0.1min
+[Memory]8.3s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.4s, 0.1min    : Loading filter_and_extract...
 Processing file /media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii
-________________________________________________________________________________
-[Memory] Calling nilearn.image.image.high_variance_confounds...
-high_variance_confounds(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__________________________________________high_variance_confounds - 2.4s, 0.0min
-________________________________________________________________________________
-[Memory] Calling nilearn.input_data.base_masker.filter_and_extract...
-filter_and_extract(&#39;/media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii&#39;, 
-&lt;nilearn.input_data.nifti_maps_masker._ExtractionFunctor object at 0x7fc04a1643a0&gt;, 
-{ &#39;allow_overlap&#39;: True,
-  &#39;detrend&#39;: True,
-  &#39;dtype&#39;: None,
-  &#39;high_pass&#39;: 0.01,
-  &#39;high_variance_confounds&#39;: True,
-  &#39;low_pass&#39;: None,
-  &#39;maps_img&#39;: &#39;/home/jt/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii&#39;,
-  &#39;mask_img&#39;: None,
-  &#39;smoothing_fwhm&#39;: None,
-  &#39;standardize&#39;: True,
-  &#39;standardize_confounds&#39;: True,
-  &#39;t_r&#39;: 2,
-  &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
-       [   0.,    4.,    0., -111.],
-       [   0.,    0.,    4.,  -51.],
-       [   0.,    0.,    0.,    1.]]),
-  &#39;target_shape&#39;: (40, 48, 35)}, confounds=[ array([[ 0.0318  , ...,  0.024652],
-       ...,
-       [-0.101141, ..., -0.044573]])], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-[NiftiMapsMasker.transform_single_imgs] Loading data from /media/jt/Daten1/preproc/datasink/smooth/sub-72/task-restingstatewithclosedeyes/fwhm-8_swarsub-72_task-rest_bold.nii
-[NiftiMapsMasker.transform_single_imgs] Resampling images
-[NiftiMapsMasker.transform_single_imgs] Extracting region signals
-[NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 7.1s, 0.1min
+[Memory]8.4s, 0.1min    : Loading high_variance_confounds...
+[Memory]8.5s, 0.1min    : Loading filter_and_extract...
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv">
-<h2>We use two different ways to compute the precision and correlation, GraphicalLassoCV and GroupSparseCovarianceCV<a class="headerlink" href="#we-use-two-different-ways-to-compute-the-precision-and-correlation-graphicallassocv-and-groupsparsecovariancecv" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation-matrices-and-connectomes">
+<h2>Correlation matrices and connectomes<a class="headerlink" href="#correlation-matrices-and-connectomes" title="Permalink to this headline">¶</a></h2>
+<p>We use two different ways to compute the precision and correlation, GraphicalLassoCV and GroupSparseCovarianceCV.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <span class="n">GroupSparseCovarianceCV</span>
@@ -1433,7 +793,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    6.1s remaining:    0.0s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    6.0s remaining:    0.0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 2
@@ -1448,14 +808,14 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  1 out of 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   32.8s finished
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   29.6s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   11.5s remaining:    0.0s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   11.0s remaining:    0.0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
@@ -1472,14 +832,14 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  2 out of 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   57.9s finished
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   56.1s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   10.6s remaining:    0.0s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    8.3s remaining:    0.0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 10
@@ -1489,7 +849,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   54.2s finished
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   50.6s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 </pre></div>
 </div>
@@ -1497,7 +857,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    8.6s remaining:    0.0s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    8.4s remaining:    0.0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 13
@@ -1509,7 +869,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 8
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   50.6s finished
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   57.3s finished
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  4 out of 4
@@ -1518,37 +878,37 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.2s remaining:    0.0s
-................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    1.6s finished
+....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.5s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.5s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  1 out of 4:   2s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.3s remaining:    0.0s
+................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.6s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  1 out of 4:   1s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  2 out of 4:   5s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.6s remaining:    0.0s
 ................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.4s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  2 out of 4:   3s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  3 out of 4:   7s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.5s remaining:    0.0s
-................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.3s finished
-[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.5s remaining:    0.0s
+...............
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  3 out of 4:   6s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.3s remaining:    0.0s
-................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.6s finished
-[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  4 out of 4:   8s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[GraphicalLassoCV] Done refinement  4 out of 4:  10s
 [graphical_lasso] Iteration   0, cost  1.62e+02, dual gap 4.862e-01
 [graphical_lasso] Iteration   1, cost  1.62e+02, dual gap -1.406e-02
 [graphical_lasso] Iteration   2, cost  1.62e+02, dual gap -8.801e-04
@@ -1556,14 +916,17 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 [graphical_lasso] Iteration   4, cost  1.62e+02, dual gap 6.202e-05
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    2.6s finished
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GraphicalLassoCV(verbose=2)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="define-a-function-to-plot-the-matrices-easier">
-<h2>Define a function to plot the matrices easier.<a class="headerlink" href="#define-a-function-to-plot-the-matrices-easier" title="Permalink to this headline">¶</a></h2>
+<p>Define a function to plot the matrices easier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1592,9 +955,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-connectomes-and-matrices">
-<h2>Plot the connectomes and matrices<a class="headerlink" href="#plot-the-connectomes-and-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Plotting the connectomes and matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atlas_img</span> <span class="o">=</span> <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span>
@@ -1626,19 +987,8 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/ICA_Nilearn_healthy_25_0.png" src="_images/ICA_Nilearn_healthy_25_0.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_1.png" src="_images/ICA_Nilearn_healthy_25_1.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_2.png" src="_images/ICA_Nilearn_healthy_25_2.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_3.png" src="_images/ICA_Nilearn_healthy_25_3.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_4.png" src="_images/ICA_Nilearn_healthy_25_4.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_5.png" src="_images/ICA_Nilearn_healthy_25_5.png" />
-<img alt="_images/ICA_Nilearn_healthy_25_6.png" src="_images/ICA_Nilearn_healthy_25_6.png" />
 </div>
-</div>
-</div>
-<div class="section" id="save-the-matrices">
-<h2>Save the matrices<a class="headerlink" href="#save-the-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Saving the matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
@@ -1665,13 +1015,11 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ICA_Nilearn_healthy_27_0.png" src="_images/ICA_Nilearn_healthy_27_0.png" />
-<img alt="_images/ICA_Nilearn_healthy_27_1.png" src="_images/ICA_Nilearn_healthy_27_1.png" />
+<img alt="_images/ICA_Nilearn_healthy_34_0.png" src="_images/ICA_Nilearn_healthy_34_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_34_1.png" src="_images/ICA_Nilearn_healthy_34_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="save-the-precision-matrix">
-<h2>Save the precision matrix<a class="headerlink" href="#save-the-precision-matrix" title="Permalink to this headline">¶</a></h2>
+<p>Saving the precision matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prec</span> <span class="o">=</span> <span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -1691,17 +1039,17 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ICA_Nilearn_healthy_29_0.png" src="_images/ICA_Nilearn_healthy_29_0.png" />
+<img alt="_images/ICA_Nilearn_healthy_36_0.png" src="_images/ICA_Nilearn_healthy_36_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file">
-<h2>Matrices are nice to see but we look also for the exactly figures and saving the as .csv file.<a class="headerlink" href="#matrices-are-nice-to-see-but-we-look-also-for-the-exactly-figures-and-saving-the-as-csv-file" title="Permalink to this headline">¶</a></h2>
+<p>Matrices are nice to see but we look also for the exactly figures and saving the as .csv file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">opendyxl</span>
 <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GL_covariances_dep.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GL_covariances_healthy.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;GL_covariances_healthyx.xlsx&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -2694,7 +2042,8 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GSC_covariances_dep.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;GSC_covariances_healthy.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;GSC_covariances_healthyx.xlsx&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -3729,7 +3078,7 @@ _______________________________________________filter_and_extract - 7.1s, 0.1min
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Skript_Preprocessing_with_nipype.html" title="previous page">In this script we are going to process our fmri data with nipype</a>
+    <a class='left-prev' id="prev-link" href="ICA_Nilearn_dep.html" title="previous page">Independet Component Analysis with Nilearn (depressiv subjects)</a>
     <a class='right-next' id="next-link" href="results.html" title="next page">Results &amp; outcomes</a>
 
         </div>
