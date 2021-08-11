@@ -1,26 +1,28 @@
 # Results & outcomes
 
-* What results did the applied analyses yield?
 
 ### Hypothesis 1
-* The first hypothesis was that functional connectivity differs between depressed patients and healthy controls.
+The first hypothesis was that functional connectivity differs between depressed patients and healthy controls.
 
 ### Hypothesis 2
-* The second hypothesis was that replicating the methods that were used in the original study but using different analysis and preprocessing tools (mriqc, Nilearn, Nipype) would lead to different results regarding the differences in functional connectivity between depressed patients and healthy controls.
+The second hypothesis was that replicating the methods that were used in the original study but using different analysis and preprocessing tools (mriqc, Nilearn, Nipype) would lead to different results regarding the differences in functional connectivity between depressed patients and healthy controls.
 
-* Were there other outcomes of the project (e.g. software, etc.)?
 
 ## Results of the original study
 
 
-* At first the main results of Bezmaternykh et al. (2021) regarding the differences in functional connectivity between the two groups were evaluated.
+At first the main results of Bezmaternykh et al. (2021) regarding the differences in functional connectivity between the two groups were evaluated.
 Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for connectivity differences (Table 3 & Figure 1) between the depressed and control group. They found decreased functional connectivity within the default mode network (DMN) which is not inline with the majority of other studies in this field. Moreover, a global increase of functional connectivity was found in the depressive group between the DMN and the executive control network (ECN). This is also not a typical finding for patients with depression. Another notable result was the overconnectivity of the medial visual cortex (mVis) with the audial cortex (AN) in the depressive group.
 
+##### Table 1: ICA depressed vs. controls (Bezmaternykh et al., 2021, p. 5)
 ![Table 1 (Bezmaternykh et al., 2021, p. 5)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Table%202%20Paper.PNG?raw=true)
 
+##### Table 2: Results of depressed vs. controls coparison in all cases (left part) and in cases correlated with 6 solid body motion parameters less than r=0.4 on individual level (right part) (Bezmaternykh et al., 2021, p. 6)
 ![Table 2 (Bezmaternykh et al., 2021, p. 6)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Table%203%20Paper.PNG?raw=true)
 
 ![Figure 1 (Bezmaternykh et al., 2021, p. 6)](  https://github.com/Jakob236/notreadyyet/blob/master/project/Figure%201%20Paper.PNG?raw=true)
+##### Figure 1: Results of depressed vs. controls comparison (Bezmaternykh et al. 2021, p. 6). Blue lines show pairs with more connectivity in controls, red lines show pairs with more connectivity in depressed patients (p < 0.05 uncorrected).
+
 
 
 
@@ -28,9 +30,9 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 
 
 
-* In the table below the areas are listed that showed the biggest correlation coefficient differences when comparing both groups.
+In the table below the areas are listed that showed the biggest correlation coefficient differences when comparing both groups.
 
-
+##### Table 4: Group comparison of the most important brain areas of the analysis
 ![Table 4 (Most important brain areas of the analysis)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table%20-%20biggest%20differences.PNG?raw=true)
 * To compare our results with the results of (Bezmaternykh et al., 2021) we needed to categorize the brain areas into the networks they belong to. 
   * Motor was categorized as sensorimotor network.
@@ -42,8 +44,9 @@ Bezmaternykh et al. (2021) performed an ICA (Table 2) and afterwards looked for 
 
 The most significant percentage of discrepancies showed differences in several areas like motor cortex (Motor), Broca's area (Broca), ventral anterior cingulate cortex (V ACC), cingulate cortex (Cing), left intraparietal sulcus (L Ant IPS) and right parahippocampal gyrus (R Par). We found higher correlation coefficients in depressive subjects between the saliency network and the sensorimotor network (V ACC – Motor). Also, there was a higher correlation in the depressive group within the DMN for R Par – Cing. Higher corrleation coefficients for the healthy group were found between the language network and the sensorimotor network (Broca - Motor)and between the language network and the dorsal attention network (Broca - L Ant IPS).
 
-* The table below displays the correlation coefficient differences within the default mode network (DMN).
+The table below displays the correlation coefficient differences within the default mode network (DMN).
 
+##### Table 5: Connectivity results - DMN
 ![Table 5 (Results DMN)]( https://github.com/Jakob236/notreadyyet/blob/master/project/Our%20Results%20as%20Table%20-%20DMN.PNG?raw=true)
 
 When looking at broader areas rather than specific regions in the DMN, a higher correlation coefficient in the healthy group could be found for L DMN - Front DMN, L DMN - R DMN and Med DMN - Front DMN. For the other areas the correlation ceofficient difference was too small to be considered as a difference in connectivity between the two groups.
