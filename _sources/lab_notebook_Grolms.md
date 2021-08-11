@@ -33,8 +33,7 @@
 - having a meeting with Christoph concerning the current status of the project and how we continue using mriqc
 - trying to use mriqc
 ![jsondecodeerror](https://user-images.githubusercontent.com/83179199/129088201-c3a71c22-d2cb-4634-9a6b-51508c859423.PNG)
-
-
+![Error docker quickstart](https://user-images.githubusercontent.com/83179199/129089823-713402e1-3c49-4cf2-930a-bb4a4b015201.PNG)
 
 #### Week 8: 21.06. – 27.06.2021
 - discussing data preprocessing with Christoph
@@ -89,7 +88,6 @@
 ![I broke linux](https://user-images.githubusercontent.com/83179199/129088765-e3151713-1e0f-4a5a-8b85-58d00661d09c.PNG)
 
 
-
 #### Week 13: 26.07. - 01.08.2021
 - Trying to add labels to the output of the correlation matrix
 - Getting the error message the ICA was terminated because of excessive memory usage
@@ -109,6 +107,7 @@
 - summarizing the results of the original study
 - Literature search about brain networks and functions of certain areas that were relevant in our results
 - Linux partition died again
+
 ![I broke linux](https://user-images.githubusercontent.com/83179199/129088845-476441fe-a21a-4c60-b639-d57d1184258f.PNG)
 
 
