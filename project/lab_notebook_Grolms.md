@@ -32,6 +32,9 @@
 - having another error with Docker and contacting Thomas. This line and rebooting fixed it: bcdedit /set hypervisorlaunchtype off
 - having a meeting with Christoph concerning the current status of the project and how we continue using mriqc
 - trying to use mriqc
+![jsondecodeerror](https://user-images.githubusercontent.com/83179199/129088201-c3a71c22-d2cb-4634-9a6b-51508c859423.PNG)
+
+
 
 #### Week 8: 21.06. – 27.06.2021
 - discussing data preprocessing with Christoph
@@ -44,6 +47,15 @@
 - After trying a lot the same error message still occured.
 - switching to Docker Desktop and deleting and installing Docker Toolbox again did not work.
 - talking with Jakob about further steps in the data analysis
+![Errormessage](https://user-images.githubusercontent.com/83179199/129087189-d9cc43ae-3421-49d2-870a-5f81d5d2dd48.PNG)
+![Dash instead of underscore](https://user-images.githubusercontent.com/83179199/129087526-f0ee3f4c-6014-49bb-9bc7-ea5a9ac49d27.PNG)
+![Dash instead of underscore correct](https://user-images.githubusercontent.com/83179199/129087535-d9357aa2-29f5-4252-9972-b3bf580b70d8.PNG)
+![error without sub](https://user-images.githubusercontent.com/83179199/129087567-96fd0525-53d8-41d9-8995-c5f0ba03d933.PNG)
+![data folder and dash](https://user-images.githubusercontent.com/83179199/129087859-921709f4-6fd0-4210-90f3-e4d8536956e6.PNG)
+![moved to data](https://user-images.githubusercontent.com/83179199/129088543-5470f1f0-de78-4d6d-a441-d826b4c35780.PNG)
+![data and dervivatives separated](https://user-images.githubusercontent.com/83179199/129087870-941769f3-9ea9-4dc5-8258-1da637bc86d9.PNG)
+![fancy code from Thomas](https://user-images.githubusercontent.com/83179199/129087887-fd353fc2-9669-4241-9f41-9dca87c37510.PNG)
+![without -v](https://user-images.githubusercontent.com/83179199/129088329-9401a453-668d-4828-84a3-fde51140cd86.PNG)
 
 #### Week 10: 05.07. – 11.07.2021
 - meeting with Christoph to discuss next steps with SPM/Nipype
@@ -60,6 +72,9 @@
 -  Searching in forums for people that had the same issue and how they fixed it.
 -  Installing different versions of Java and different versions of Matlab Runtime but the MCR Installer seems to need Java 5 but it still does not work.
 -  Fixing this problem by notes from Thomas that he sent Jakob.
+![error linux file not found](https://user-images.githubusercontent.com/83179199/129088024-c8b563a2-cb32-4588-b2b7-ae941fe17464.PNG)
+![Lunix file is there error message](https://user-images.githubusercontent.com/83179199/129088117-dd814910-a792-4763-b5cd-d64ff91d787d.PNG)
+
 
 #### Week 12: 19.07. - 25.07.2021
 - Meeting with Christoph to finish preprocessing, getting an error message and contacting Thomas.
@@ -70,6 +85,10 @@
 - Getting the partition back with a slightly different layout.
 - Trying out the ICA with the preprocessed data that Jakob sent me, intstalling GIPC for group comparisons
 - Meeting with Christoph: doing the ICA with NILEARN and creating connectomes and correlation matrices
+![error preprocessing LibGL error](https://user-images.githubusercontent.com/83179199/129087716-89816b0c-3fae-434b-978e-606d5376b77a.PNG)
+![I broke linux](https://user-images.githubusercontent.com/83179199/129088765-e3151713-1e0f-4a5a-8b85-58d00661d09c.PNG)
+
+
 
 #### Week 13: 26.07. - 01.08.2021
 - Trying to add labels to the output of the correlation matrix
@@ -81,6 +100,7 @@
 - Adding commands in the notebook to save the output as jpg files
 - Literature search about the replication crisis
 - Writing introduction regarding the project and the relevancy
+![memory error](https://user-images.githubusercontent.com/83179199/129088425-a481fa30-96d2-4d05-861d-375cc1da95e3.PNG)
 
 #### Week 14 02.08. - 08.08.2021
 - trying to change the size of the project logo
@@ -89,3 +109,14 @@
 - summarizing the results of the original study
 - Literature search about brain networks and functions of certain areas that were relevant in our results
 - Linux partition died again
+![I broke linux](https://user-images.githubusercontent.com/83179199/129088845-476441fe-a21a-4c60-b639-d57d1184258f.PNG)
+
+
+#### Week 15 09.08. - 15.08.2021
+- Literature search
+- working on poster
+- discussing our results and comparing it to other studies
+- writing conclusion
+- creating memes
+- preparing presentation for the talk
+- updating minor things on the website
