@@ -6,7 +6,7 @@
 
 
 ### Scientific talk 
-[Präsi.pdf](https://github.com/Jakob236/notreadyyet/files/6974558/Prasi.pdf)
+[Presentation.pdf](https://github.com/Jakob236/notreadyyet/files/6974570/Presentation.pdf)
 
 
 ### Scientific preprint
