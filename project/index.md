@@ -57,8 +57,15 @@ The project includes the following parts:
 
 
 * [Code of Conduct](https://g0rella.github.io/gorella_overview/CoC.html)
+  
+  Necessities for creating an open, fair, safe and inclusive experience.
 
-   Necessities for creating an open, fair, safe and inclusive experience.
+
+* [Memes]()
+
+
+* [References]()
+
 
 ## I've got a question!
 
