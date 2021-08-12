@@ -6,7 +6,8 @@
 
 
 ### Scientific talk 
-https://docs.google.com/viewer?url=${https://github.com/Jakob236/notreadyyet/blob/master/project/Pr%C3%A4si.pdf}
+[Präsi.pdf](https://github.com/Jakob236/notreadyyet/files/6974558/Prasi.pdf)
+
 
 ### Scientific preprint
 
