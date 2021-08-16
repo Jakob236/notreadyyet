@@ -21,7 +21,7 @@ We found the dataset of Bezmaternykh et al. (2021) and the published article. Th
   * Literature search
   * Selecting dataset that was already part of a published study
   * Formulate hypotheses
-  * pre-registration
+  * Pre-registration (https://osf.io/hfy7n)
   * Data preprocessing
   * Data analysis
   * Preparing a poster
