@@ -4,7 +4,7 @@
 
 First steps from now will be:
 - Literature search
-- Creating OSF account and pre-registration (available here: https://osf.io/hfy7n)
+- Creating OSF account (project page: https://osf.io/r4us5/?view_only=) and pre-registration (available here: https://osf.io/hfy7n)
 - Work on different documents based on Github (.md files etc.)
 - Quality check of the data 
 - Preprocessing the data
